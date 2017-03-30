@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[TUser]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] VARCHAR(15) NOT NULL, 
+    [Password] VARCHAR(12) NOT NULL, 
+    [Email] NVARCHAR(30) NULL, 
+    [Role] INT NOT NULL
+)
