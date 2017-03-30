@@ -66,6 +66,7 @@
     <Build Include="TWorkExperience.sql" />
     <Build Include="TTemplate.sql" />
     <Build Include="TResume.sql" />
+    <Build Include="TReference.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DBSchema.refactorlog" />
