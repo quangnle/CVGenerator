@@ -3,6 +3,6 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] VARCHAR(15) NOT NULL, 
     [Password] VARCHAR(12) NOT NULL, 
-    [Email] NVARCHAR(30) NULL, 
+    [Email] NVARCHAR(30) NOT NULL, 
     [Role] INT NOT NULL
 )
