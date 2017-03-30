@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "angular": "1.6.3",
+    "toastr": "2.1.2",
+    "jquery": "3.2.1",
+    "bootstrap": "3.3.7",
+    "font-awesome": "4.7.0",
+    "magnific-popup": "1.1.0",
+
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-cssmin": "~2.0.0",
+    "grunt-filerev": "~2.3.1",
+    "grunt-filerev-assets": "~1.0.0",
+    "grunt-contrib-watch": "~1.0.0"
+  }
+}
