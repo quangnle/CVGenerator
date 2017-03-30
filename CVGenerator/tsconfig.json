@@ -1,0 +1,12 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "sourceMap": true,
+    "outFile": "dist/app-build.js"
+  },
+  "files": [
+    "./app/app.module.ts"
+  ]
+}
