@@ -25,8 +25,15 @@ gulp.task('vendor-scripts', function () {
 
     gulp.src(vendorSources.jquery)
 		.pipe(concat('jquery.bundle.min.js'))
-		.pipe(gulp.dest(outputLocation + '/scripts/'));
+		.pipe(gulp.dest(outputLocation + '/'));
+});
+
+gulp.task('minify-css', function () {   
+
+    gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/font-awesome/css/font-awesome.min.css'])
+    .pipe(concat('css.style.min.css'))
+    .pipe(gulp.dest(outputLocation + '/'));
 });
 
 
-gulp.task('default', ['clean', 'vendor-scripts'], function () { });
+gulp.task('default', ['clean', 'vendor-scripts', 'minify-css'], function () { });

@@ -7,16 +7,26 @@
 
     <title>Jobplanet - Responsive Job Board HTML Template </title>
 
-    
-    <script src="~/dist/scripts/jquery.bundle.min.js"></script>
-    <script src="~/dist/app-build.js"></script>
+    <!--favicon-->
+    <link rel="apple-touch-icon" href="~/Content/Main/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="~/Content/Main/images/favicon.png" type="image/x-icon">
+
+    <link href="~/dist/css.style.min.css" rel="stylesheet">
+    <link href="~/Content/Main/css/theme.css" rel="stylesheet">
+    <link href="~/Content/Main/css/theme-custom.css" rel="stylesheet">
+
 </head>
 <body data-ng-app="cvGeneratorApp">
-    <!-- wrapper page -->
+    <div class="wrapper">
+        <section ng-include="'/app/views/header.html'"></section>
 
-    @RenderBody()
+        @RenderBody()
 
+        <section ng-include="'/app/views/footer.html'"></section>
+    </div>   
 
-
+    <script src="~/dist/jquery.bundle.min.js"></script>
+    <script src="~/dist/app-build.js"></script>
+    <script src="~/Content/Main/js/theme.js"></script>
 </body>
 </html>

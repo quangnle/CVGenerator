@@ -3,5 +3,6 @@
 ((): void => {
     var cvGeneratorApp = angular.module("cvGeneratorApp", []);
 
-    
+    CVGen.Controller.Home.Configure(cvGeneratorApp);
+    CVGen.Controller.Resume.Configure(cvGeneratorApp);
 })()

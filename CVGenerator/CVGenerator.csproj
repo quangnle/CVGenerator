@@ -105,10 +105,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\views\common\footer.html" />
-    <Content Include="app\views\common\header.html" />
+    <Content Include="app\views\footer.html" />
+    <Content Include="app\views\header.html" />
+    <Content Include="Content\Main\css\theme-custom.css" />
+    <Content Include="Content\Main\css\theme.css" />
+    <Content Include="Content\Main\images\apple-touch-icon.png" />
+    <Content Include="Content\Main\images\cloud-1.png" />
+    <Content Include="Content\Main\images\cloud-2.png" />
+    <Content Include="Content\Main\images\company-logo\0.jpg" />
+    <Content Include="Content\Main\images\company-logo\1.jpg" />
+    <Content Include="Content\Main\images\company-logo\2.jpg" />
+    <Content Include="Content\Main\images\company-logo\3.jpg" />
+    <Content Include="Content\Main\images\company-logo\4.jpg" />
+    <Content Include="Content\Main\images\company-logo\5.jpg" />
+    <Content Include="Content\Main\images\favicon.ico" />
+    <Content Include="Content\Main\images\home-bg.jpg" />
+    <Content Include="Content\Main\images\home-bgblur.jpg" />
+    <Content Include="Content\Main\images\logo.png" />
+    <Content Include="Content\Main\images\mac.png" />
+    <Content Include="Content\Main\images\mac1.png" />
+    <Content Include="Content\Main\images\mac2.png" />
+    <Content Include="Content\Main\images\patner\1.png" />
+    <Content Include="Content\Main\images\patner\2.png" />
+    <Content Include="Content\Main\images\patner\3.png" />
+    <Content Include="Content\Main\images\patner\4.png" />
+    <Content Include="Content\Main\images\patner\5.png" />
+    <Content Include="Content\Main\images\people\1.jpg" />
+    <Content Include="Content\Main\images\people\2.jpg" />
+    <Content Include="Content\Main\images\people\3.jpg" />
+    <Content Include="Content\Main\images\people\4.jpg" />
+    <Content Include="Content\Main\images\people\5.jpg" />
+    <Content Include="Content\Main\images\people\6.jpg" />
+    <Content Include="Content\Main\images\people\7.jpg" />
+    <Content Include="Content\Main\images\people\8.jpg" />
+    <Content Include="Content\Main\images\pinmarker.png" />
+    <Content Include="Content\Main\images\preloader.gif" />
+    <Content Include="Content\Main\images\World_map_png-7.png" />
+    <Content Include="Content\Main\js\theme.js" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="Images\logo.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -116,6 +153,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,6 +167,37 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="package.json" />
+    <Content Include="Content\Main\css\blocks\account.less" />
+    <Content Include="Content\Main\css\blocks\affix.less" />
+    <Content Include="Content\Main\css\blocks\blog.less" />
+    <Content Include="Content\Main\css\blocks\body.less" />
+    <Content Include="Content\Main\css\blocks\helper.less" />
+    <Content Include="Content\Main\css\blocks\listing.less" />
+    <Content Include="Content\Main\css\blocks\main-footer.less" />
+    <Content Include="Content\Main\css\blocks\main-header.less" />
+    <Content Include="Content\Main\css\blocks\maps.less" />
+    <Content Include="Content\Main\css\blocks\pricing.less" />
+    <Content Include="Content\Main\css\blocks\resume.less" />
+    <Content Include="Content\Main\css\blocks\shortcode.less" />
+    <Content Include="Content\Main\css\blocks\testimonial.less" />
+    <Content Include="Content\Main\css\blocks\typography.less" />
+    <Content Include="Content\Main\css\components\alert.less" />
+    <Content Include="Content\Main\css\components\btn.less" />
+    <Content Include="Content\Main\css\components\form.less" />
+    <Content Include="Content\Main\css\components\modal.less" />
+    <Content Include="Content\Main\css\components\navbar.less" />
+    <Content Include="Content\Main\css\components\pagination.less" />
+    <Content Include="Content\Main\css\components\panel.less" />
+    <Content Include="Content\Main\css\components\tabs.less" />
+    <Content Include="Content\Main\css\includes\css3.less" />
+    <Content Include="Content\Main\css\includes\variable.less" />
+    <Content Include="Content\Main\css\theme.less" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Views\Resume\PostResume.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,12 +207,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Main\" />
-    <Folder Include="fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
+    <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\references.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />

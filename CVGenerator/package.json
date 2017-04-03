@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "asp.net",
   "private": true,
-  "devDependencies": {   
+  "devDependencies": {
     "angular": "1.6.3",
     "toastr": "2.1.2",
     "jquery": "3.2.1",
@@ -12,7 +12,7 @@
 
     "gulp": "3.9.1",
     "del": "2.2.2",
-    "gulp-concat": "2.6.1"
-  }
-, "-vs-binding":{"Clean":["update","install"]}
+    "gulp-concat": "2.6.1",
+    "gulp-minify-css": "1.2.4"
+  }, "-vs-binding":{"Clean":["update","install"]}
 }
