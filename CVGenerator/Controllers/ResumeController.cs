@@ -13,5 +13,10 @@ namespace CVGenerator.Controllers
         {
             return View();
         }
+
+        public ActionResult CreateProfile()
+        {
+            return View();
+        }
     }
 }

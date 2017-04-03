@@ -198,6 +198,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Views\Resume\PostResume.cshtml" />
+    <Content Include="Views\Resume\CreateProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -213,6 +214,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
+    <TypeScriptCompile Include="app\controllers\app.module.profile.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\references.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />

@@ -3,3 +3,4 @@
 
 /// <reference path="controllers/app.module.home.ts" />
 /// <reference path="controllers/app.module.resume.ts" />
+/// <reference path="controllers/app.module.profile.ts" />
