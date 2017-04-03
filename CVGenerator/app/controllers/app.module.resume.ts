@@ -3,10 +3,13 @@
 
 module CVGen.Controller {
     export class Resume {
-        static Configure(module: angular.IModule) {
-            //public static $inject = ['$scope', '$filter', '$location'];
-            module.controller('ResumeCtrl', function () {
+        public static $inject = ['$scope'];
 
+        static Configure(module: angular.IModule) {
+            module.controller('ResumeCtrl', function ($scope) {
+                $scope.SubmitResume = () => {
+                    alert("ád");
+                };
             })
         }
     }

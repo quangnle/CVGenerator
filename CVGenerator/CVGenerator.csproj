@@ -206,6 +206,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

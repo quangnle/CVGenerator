@@ -27,12 +27,15 @@ var CVGen;
             function Resume() {
             }
             Resume.Configure = function (module) {
-                //public static $inject = ['$scope', '$filter', '$location'];
-                module.controller('ResumeCtrl', function () {
+                module.controller('ResumeCtrl', function ($scope) {
+                    $scope.SubmitResume = function () {
+                        alert("ád");
+                    };
                 });
             };
             return Resume;
         }());
+        Resume.$inject = ['$scope'];
         Controller.Resume = Resume;
     })(Controller = CVGen.Controller || (CVGen.Controller = {}));
 })(CVGen || (CVGen = {}));
