@@ -208,6 +208,7 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Views\Resume\PostResume.cshtml" />
     <Content Include="Views\Resume\CreateProfile.cshtml" />
+    <Content Include="Views\Resume\ViewProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
