@@ -4,25 +4,6 @@ var CVGen;
 (function (CVGen) {
     var Controller;
     (function (Controller) {
-        var Home = (function () {
-            function Home() {
-            }
-            Home.Configure = function (module) {
-                //public static $inject = ['$scope', '$filter', '$location'];
-                module.controller('HomeCtrl', function () {
-                });
-            };
-            return Home;
-        }());
-        Controller.Home = Home;
-    })(Controller = CVGen.Controller || (CVGen.Controller = {}));
-})(CVGen || (CVGen = {}));
-/// <reference path="../references.ts" />
-'use strict';
-var CVGen;
-(function (CVGen) {
-    var Controller;
-    (function (Controller) {
         var Resume = (function () {
             function Resume() {
             }
@@ -50,9 +31,25 @@ var CVGen;
             }
             Profile.Configure = function (module) {
                 module.controller('ProfileCtrl', function ($scope) {
-                    $scope.SubmitResume = function () {
+                    $scope.SubmitProfile = function () {
                         // doing submit
                         alert('submitted');
+                    };
+                    $scope.SubmitWorkExp = function () {
+                        // doing submit
+                        alert('submitted');
+                    };
+                    $scope.GotoEducation = function () {
+                        // doing submit
+                        alert('GotoEducation');
+                    };
+                    $scope.GotoSkill = function () {
+                        // doing submit
+                        alert('GotoSkill');
+                    };
+                    $scope.GotoRef = function () {
+                        // doing submit
+                        alert('GotoRef');
                     };
                 });
             };
@@ -66,6 +63,25 @@ var CVGen;
 /// <reference path="controllers/app.module.home.ts" />
 /// <reference path="controllers/app.module.resume.ts" />
 /// <reference path="controllers/app.module.profile.ts" /> 
+/// <reference path="../references.ts" />
+'use strict';
+var CVGen;
+(function (CVGen) {
+    var Controller;
+    (function (Controller) {
+        var Home = (function () {
+            function Home() {
+            }
+            Home.Configure = function (module) {
+                //public static $inject = ['$scope', '$filter', '$location'];
+                module.controller('HomeCtrl', function () {
+                });
+            };
+            return Home;
+        }());
+        Controller.Home = Home;
+    })(Controller = CVGen.Controller || (CVGen.Controller = {}));
+})(CVGen || (CVGen = {}));
 /// <reference path="references.ts" />
 'use strict';
 (function () {

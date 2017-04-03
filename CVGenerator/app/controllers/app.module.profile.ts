@@ -7,9 +7,29 @@ module CVGen.Controller {
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl', function ($scope) {
-                $scope.SubmitResume = () => {
+                $scope.SubmitProfile = () => {
                     // doing submit
                     alert('submitted');
+                };
+
+                $scope.SubmitWorkExp = () => {
+                    // doing submit
+                    alert('submitted');
+                };
+
+                $scope.GotoEducation = () => {
+                    // doing submit
+                    alert('GotoEducation');
+                };
+
+                $scope.GotoSkill = () => {
+                    // doing submit
+                    alert('GotoSkill');
+                };
+
+                $scope.GotoRef = () => {
+                    // doing submit
+                    alert('GotoRef');
                 };
             })
         }
