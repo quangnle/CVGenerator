@@ -8,12 +8,10 @@ module CVGen.Controller {
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl', function ($scope) {
                 $scope.SubmitProfile = () => {
-                    // doing submit
                     alert('submitted');
                 };
 
-                $scope.SubmitWorkExp = () => {
-                    // doing submit
+                $scope.GotoWorkExp = () => {
                     alert('submitted');
                 };
 

@@ -32,11 +32,9 @@ var CVGen;
             Profile.Configure = function (module) {
                 module.controller('ProfileCtrl', function ($scope) {
                     $scope.SubmitProfile = function () {
-                        // doing submit
                         alert('submitted');
                     };
-                    $scope.SubmitWorkExp = function () {
-                        // doing submit
+                    $scope.GotoWorkExp = function () {
                         alert('submitted');
                     };
                     $scope.GotoEducation = function () {
