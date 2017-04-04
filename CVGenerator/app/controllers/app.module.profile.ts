@@ -3,16 +3,26 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope'];
+        public static $inject = ['$scope','logger', 'profileService'];
 
         static Configure(module: angular.IModule) {
-            module.controller('ProfileCtrl', function ($scope) {
+            module.controller('ProfileCtrl', function ($scope, logger, profileService: Services.ProfileService) {
                 $scope.SubmitProfile = () => {
-                    alert('submitted');
+                    // doing submit
+
+                    profileService.Test()
+                        .then((response) => {
+                            if (response.status == 200) {
+                                alert(response.data);
+                            }
+                        });
+                    //alert('submitted');
                 };
 
                 $scope.GotoWorkExp = () => {
-                    alert('submitted');
+                    logger.log("asdads");
+                    // doing submit
+                  //  alert('submitted');
                 };
 
                 $scope.GotoEducation = () => {

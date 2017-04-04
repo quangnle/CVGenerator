@@ -3,8 +3,8 @@
 
 module CVGen.Controller {
     export class Home {
+        //public static $inject = ['$scope', '$filter', '$location'];
         static Configure(module: angular.IModule) {
-            //public static $inject = ['$scope', '$filter', '$location'];
             module.controller('HomeCtrl', function () {
 
             })

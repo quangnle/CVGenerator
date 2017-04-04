@@ -28,9 +28,13 @@ gulp.task('vendor-scripts', function () {
 		.pipe(gulp.dest(outputLocation + '/'));
 });
 
-gulp.task('minify-css', function () {   
+gulp.task('minify-css', function () {
 
-    gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/font-awesome/css/font-awesome.min.css'])
+    gulp.src([
+        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/font-awesome/css/font-awesome.min.css',
+        'node_modules/toastr/build/toastr.min.css'
+    ])
     .pipe(concat('css.style.min.css'))
     .pipe(gulp.dest(outputLocation + '/'));
 });

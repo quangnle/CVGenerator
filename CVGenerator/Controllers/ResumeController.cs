@@ -9,7 +9,7 @@ namespace CVGenerator.Controllers
     public class ResumeController : Controller
     {
         // GET: Resume
-        public ActionResult PostResume()
+        public ActionResult ViewProfile(string id)
         {
             return View();
         }
