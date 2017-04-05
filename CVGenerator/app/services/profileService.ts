@@ -8,10 +8,11 @@ module CVGen.Services {
             this.httpService = $http;
         }
 
-        Test = () => {           
+        SubmitProfile = (profileModel) => {           
             return this.httpService({
-                method: 'GET',
-                url:  "/api/Profile/Test",
+                data: profileModel,
+                method: 'POST',
+                url:  "/api/Profile/SubmitProfile",
             });
         }
 

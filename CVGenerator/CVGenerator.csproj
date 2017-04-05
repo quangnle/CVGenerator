@@ -47,6 +47,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -65,6 +73,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -147,6 +157,16 @@
     <Content Include="Content\Main\images\preloader.gif" />
     <Content Include="Content\Main\images\World_map_png-7.png" />
     <Content Include="Content\Main\js\theme.js" />
+    <Content Include="Entities\CvGenModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CvGenModel.Context.cs</LastGenOutput>
+      <DependentUpon>CvGenModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\CvGenModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CvGenModel.edmx</DependentUpon>
+      <LastGenOutput>CvGenModel.cs</LastGenOutput>
+    </Content>
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
@@ -162,9 +182,50 @@
     <Compile Include="Controllers\API\ProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
+    <Compile Include="Entities\CvGenModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CvGenModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CvGenModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CvGenModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CvGenModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TEducation.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TProfile.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TReference.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TResume.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TSkill.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TTemplate.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TUser.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TWorkExperience.cs">
+      <DependentUpon>CvGenModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\HandleApiExceptionAttribute.cs" />
   </ItemGroup>
@@ -209,6 +270,13 @@
     <Content Include="Views\Resume\PostResume.cshtml" />
     <Content Include="Views\Resume\CreateProfile.cshtml" />
     <Content Include="Views\Resume\ViewProfile.cshtml" />
+    <EntityDeploy Include="Entities\CvGenModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CvGenModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entities\CvGenModel.edmx.diagram">
+      <DependentUpon>CvGenModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -216,9 +284,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
@@ -239,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -266,14 +333,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

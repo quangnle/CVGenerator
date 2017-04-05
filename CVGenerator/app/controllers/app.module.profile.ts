@@ -3,17 +3,23 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope','logger', 'profileService'];
+        public static $inject = ['$scope', 'logger', 'profileService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl', function ($scope, logger, profileService: Services.ProfileService) {
+
+                $scope.InitCreateProfile = () => {
+                    $scope.Profile = {};
+                    $scope.Profile.Educations = [];
+                }
+
                 $scope.SubmitProfile = () => {
                     // doing submit
-
-                    profileService.Test()
+                    var profile = $scope.Profile;
+                    profileService.SubmitProfile(profile)
                         .then((response) => {
                             if (response.status == 200) {
-                                alert(response.data);
+                                logger.log("OK");
                             }
                         });
                     //alert('submitted');
@@ -22,7 +28,7 @@ module CVGen.Controller {
                 $scope.GotoWorkExp = () => {
                     logger.log("asdads");
                     // doing submit
-                  //  alert('submitted');
+                    //  alert('submitted');
                 };
 
                 $scope.GotoEducation = () => {
@@ -38,6 +44,10 @@ module CVGen.Controller {
                 $scope.GotoRef = () => {
                     // doing submit
                     alert('GotoRef');
+                };
+
+                $scope.AddEducation = () => {
+                    $scope.Profile.Educations.push({});
                 };
             })
         }
