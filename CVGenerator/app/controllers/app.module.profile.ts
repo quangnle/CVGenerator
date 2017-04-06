@@ -47,7 +47,7 @@ module CVGen.Controller {
                 };
 
                 $scope.AddEducation = () => {
-                    $scope.Profile.Educations.push({});
+                    $scope.Profile.Educations.push({ University: '', FromYear: '', ToYear: '' });
                 };
             })
         }
