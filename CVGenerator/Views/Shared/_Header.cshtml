@@ -1,6 +1,4 @@
 ﻿<header class="main-header">
-
-
     <!-- main navbar -->
     <nav class="navbar navbar-default main-navbar hidden-sm hidden-xs">
         <div class="container">
@@ -9,11 +7,25 @@
                 <ul class="nav navbar-nav">
                     <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
                     <li class=""><a href="resume_list.html"><strong>Post a Resumes</strong></a></li>
-                    <li class=""><a href="jo"><strong>Post a Job</strong></a></li>                   
+                    <li class=""><a href="jo"><strong>Post a Job</strong></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
-                    <li class="link-btn"><a href="register.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <a href="javascript:document.getElementById('logoutForm').submit()">
+                                <span class="pull-left">Sign out</span> <i class="pull-right fa fa-sign-out"></i>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <li class="link-btn"><a href="@Url.Action("Login","Account")"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
+                        <li class="link-btn"><a href="@Url.Action("Register","Account")"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+                    }                 
                 </ul>
             </div>
         </div>
@@ -65,5 +77,5 @@
         </nav>
     </div><!-- mobile navbar -->
 
-   
+
 </header><!-- end main-header -->
