@@ -35,5 +35,33 @@ namespace CVGenerator.Controllers
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             return View();
         }
+
+        //[HttpPost]
+        //public async Task<ActionResult> Login(LoginViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("Login");
+        //    }
+        //    //return View(model);
+
+        //    var result = await UserManager.FindAsync(model.Email, model.Password);
+
+        //    if (result != null)
+        //    {
+        //        await SignInAsync(result, model.RememberMe);
+
+        //        return RedirectToAction("Index", "Home");
+        //        //return RedirectToLocal(returnUrl);
+        //    }
+        //    //else
+        //    //{
+        //    //    ModelState.AddModelError("", "Invalid username or password.");
+        //    //}
+
+
+
+        //    return View("Login");
+        //}
     }
 }
