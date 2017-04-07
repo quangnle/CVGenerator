@@ -28,5 +28,7 @@ namespace CVGenerator.Entities
         public string Email { get; set; }
         public string Website { get; set; }
         public string AboutMe { get; set; }
+        public string Photo { get; set; }
+        public Nullable<int> IdUser { get; set; }
     }
 }

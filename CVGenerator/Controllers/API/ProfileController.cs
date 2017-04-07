@@ -1,4 +1,5 @@
-﻿using CVGenerator.Models;
+﻿using CVGenerator.Entities;
+using CVGenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,26 +23,33 @@ namespace CVGenerator.Controllers.API
         {
             using (var db = new Entities.GvGenEntities())
             {
-                db.TProfiles.Add(new Entities.TProfile
-                {
-                    FirstName = profile.FirstName,
-                    LastName = profile.LastName,
-                    Age=20,
-                    YearOfExp=4,
-                    Gender="Male",
-                    Degree="Collage",
-                    Occupation="Test",
-                    Address=profile.Address,
-                    Nationality=profile.Nationality,
-                    PhoneNo=profile.PhoneNumber,
-                    Email=profile.Email,
-                    Website="http:",
-                    AboutMe="About me"
-                });
+                var entity = profile.GetNew();
+
+                db.TProfiles.Add(entity);
                 db.SaveChanges();
             }
 
             return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        public TProfile GetProfile(int id)
+        {
+            using (var db = new GvGenEntities())
+            {
+                var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
+
+                return entity;
+            }
+        }
+
+        public List<TProfile> GetProfileByUserId(int idUser)
+        {
+            using (var db = new GvGenEntities())
+            {
+                var list = db.TProfiles.Where(e => e.IdUser == idUser).ToList();
+
+                return list;
+            }
         }
     }
 }
