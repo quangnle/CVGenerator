@@ -1,7 +1,9 @@
-﻿using Microsoft.Owin.Security;
+﻿using CVGenerator.Models;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -36,32 +38,24 @@ namespace CVGenerator.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult> Login(LoginViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View("Login");
-        //    }
-        //    //return View(model);
+        [HttpPost]
+        public async Task<ActionResult> Login(Login model)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("Login");
+            //}    
 
-        //    var result = await UserManager.FindAsync(model.Email, model.Password);
+            //var result = await UserManager.FindAsync(model.Email, model.Password);
 
-        //    if (result != null)
-        //    {
-        //        await SignInAsync(result, model.RememberMe);
+            //if (result != null)
+            //{
+            //    await SignInAsync(result, model.RememberMe);
 
-        //        return RedirectToAction("Index", "Home");
-        //        //return RedirectToLocal(returnUrl);
-        //    }
-        //    //else
-        //    //{
-        //    //    ModelState.AddModelError("", "Invalid username or password.");
-        //    //}
+            //    return RedirectToAction("Index", "Home");
+            //}         
 
-
-
-        //    return View("Login");
-        //}
+            return View("Login");
+        }
     }
 }
