@@ -12,6 +12,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.IsAuthenticated)
                     {
+                        //Context.User.Identity.Name
                         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                         {
                             @Html.AntiForgeryToken()
@@ -25,7 +26,7 @@
                     {
                         <li class="link-btn"><a href="@Url.Action("Login","Account")"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
                         <li class="link-btn"><a href="@Url.Action("Register","Account")"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
-                    }                 
+                    }
                 </ul>
             </div>
         </div>

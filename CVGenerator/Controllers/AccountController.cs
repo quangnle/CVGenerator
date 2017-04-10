@@ -23,22 +23,22 @@ namespace CVGenerator.Controllers
         [HttpPost]
         public ActionResult Login(Login model)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            using (var context = new Entities.GvGenEntities())
             {
-                using (var context = new Entities.GvGenEntities())
+                var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
+                if (entities.Count == 1)
                 {
-                    var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
-                    if (entities.Count == 1)
-                    {
-                        FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Login failed. Check your login credential.");
-                    }
+                    FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login failed. Check your login credential.");
                 }
             }
+            //}
 
             return View("login");
         }
