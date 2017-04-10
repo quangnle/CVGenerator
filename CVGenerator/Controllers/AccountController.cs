@@ -54,7 +54,7 @@ namespace CVGenerator.Controllers
         [HttpPost]
         public ActionResult Register(Login model)
         {
-            using (var context = new Entities.GvGenEntities())
+            using (var context = new GvGenEntities())
             {
                 var mailExists = context.TUsers.First(m => m.Email == model.Email);
                 if (mailExists == null)
