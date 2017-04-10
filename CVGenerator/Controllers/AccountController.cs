@@ -1,4 +1,5 @@
-﻿using CVGenerator.Models;
+﻿using CVGenerator.Entities;
+using CVGenerator.Models;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
@@ -6,56 +7,75 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CVGenerator.Controllers
 {
     public class AccountController : Controller
     {
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
-
         [AllowAnonymous]
         public ActionResult Login()
         {
-            AuthenticationManager.SignOut("Cookies");
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
- 
-
             return View();
         }
 
         [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Login(Login model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var context = new Entities.GvGenEntities())
+                {
+                    var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
+                    if (entities.Count == 1)
+                    {
+                        FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Login failed. Check your login credential.");
+                    }
+                }
+            }
+
+            return View("login");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
         public ActionResult Register()
         {
-            AuthenticationManager.SignOut("Cookies");
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult> Login(Login model)
+        public ActionResult Register(Login model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View("Login");
-            //}    
+            using (var context = new Entities.GvGenEntities())
+            {
+                var mailExists = context.TUsers.First(m => m.Email == model.Email);
+                if (mailExists == null)
+                {
+                    var entity = new TUser();
+                    entity.Name = model.Email;
+                    entity.Email = model.Email;
+                    entity.Password = model.Password;
+                    entity.Role = (int)AuthRole.User;
+                    context.TUsers.Add(entity);
 
-            //var result = await UserManager.FindAsync(model.Email, model.Password);
-
-            //if (result != null)
-            //{
-            //    await SignInAsync(result, model.RememberMe);
-
-            //    return RedirectToAction("Index", "Home");
-            //}         
-
-            return View("Login");
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Your email has been existed in the system.");
+                }
+            }
+            return View("login");
         }
+
+
     }
 }
