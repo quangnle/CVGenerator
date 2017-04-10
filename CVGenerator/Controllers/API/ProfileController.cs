@@ -21,7 +21,7 @@ namespace CVGenerator.Controllers.API
         [HttpPost]
         public HttpResponseMessage SubmitProfile([FromBody]Profile profile)
         {
-            using (var db = new Entities.GvGenEntities())
+            using (var db = new GvGenEntities())
             {
                 var entity = profile.GetNew();
 
@@ -31,6 +31,8 @@ namespace CVGenerator.Controllers.API
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
+
+        
 
         public TProfile GetProfile(int id)
         {
