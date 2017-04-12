@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "CreateProfile";
+}
+
+<div ng-controller="ProfileCtrl" ng-init="InitCreateProfile()">
+    <!-- body-content -->
+    <div class="body-content clearfix">
+        <div class="bg-color2 block-section line-bottom">
+            <div class="container">
+                <h1 class="text-center no-margin">Create Your Profile</h1>
+            </div>
+        </div>
+        <div class="bg-color1 block-section line-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <!-- form create your profile -->
+                        <div>
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <div class="row clearfix">
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control " placeholder="First name" ng-model="Profile.FirstName">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control " placeholder="Last name" ng-model="Profile.LastName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row clearfix">
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control " placeholder="Age">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <select class="form-control">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control " placeholder="Years of experience" ng-model="Profile.YearsOfExp">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control " placeholder="Nationality" ng-model="Profile.Nationality">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Occupation</label>
+                                <div class="row clearfix">
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control " placeholder="Programmer, data analyst ...">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <select class="form-control">
+                                            <option>Degree</option>
+                                            <option>Bachelor</option>
+                                            <option>Master</option>
+                                            <option>Phd</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Contact</label>
+                                <div class="row clearfix">
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control " placeholder="Phone" ng-model="Profile.PhoneNumber">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <input type="text" class="form-control " placeholder="Email" ng-model="Profile.Email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Address</label>
+                                <div class="row clearfix">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control " placeholder="Enter you address">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Website</label>
+                                <div class="row clearfix">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control " placeholder="website">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>About Me</label>
+                                <div class="color-white-mute"><small>Describe yourself about work experience, skills, or education...</small></div>
+                                <textarea class="form-control" rows="6" placeholder="Enter your introduction"></textarea>
+                                <small class="color-white-mute">Formatting Options:    ##heading      *bold*          _italic_          * bulleted list</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label ng-show="Profile.Educations.length > 0">Education</label>
+                                <div class="alert alert-info alert-dismissible fade in" role="alert" ng-repeat="edu in Profile.Educations`">
+                                    <button type="button" class="close" ng-click="RemoveEducation($index)" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <div class="form-group">
+                                        <label>University</label>
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <input type="text" class="form-control " placeholder="University" ng-model="edu.University">
+                                            </div>                                        
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">                                 
+                                        <div class="row clearfix">
+                                            <div class="col-xs-6">
+                                                <input type="text" class="form-control " placeholder="From Year" ng-model="edu.FromYear">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <input type="text" class="form-control " placeholder="To Year" ng-model="edu.ToYear">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="row clearfix">
+                                            <div class="col-xs-12">
+                                                <textarea  class="form-control " placeholder="Description" ng-model="edu.Description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <button class="btn btn-t-primary btn-theme" ng-click="AddEducation()">Add Education</button>
+                            </div>
+
+                            <div class="form-group ">
+                                <button class="btn btn-t-primary btn-theme" ng-click="SubmitProfile()">Submit</button>
+                                <button class="btn btn-t-primary btn-theme" ng-click="GotoEducation()">Go to Education</button>
+                                <button class="btn btn-t-primary btn-theme" ng-click="GotoSkill()">Go to Skill</button>
+                                <button class="btn btn-t-primary btn-theme" ng-click="GotoWorkExp()">Go to Work Experience</button>
+                                <button class="btn btn-t-primary btn-theme" ng-click="GotoRef()">Go to References</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--end body-content -->
+    </div>
