@@ -13,7 +13,20 @@
 
                         <!-- box item details -->
                         <div class="block-section box-item-details">
-                            <section ng-include="'/app/views/personalInformation.html'"></section>
+                            <section ng-show="step=='personalInformation'" ng-include="'/app/views/personalInformation.html'"></section>
+
+                            <section ng-show="step=='education'" ng-include="'/app/views/education.html'"></section>
+                            <section ng-show="step=='workExperience'" ng-include="'/app/views/workExperience.html'"></section>
+                            <section ng-show="step=='skill'" ng-include="'/app/views/skill.html'"></section>
+                            <section ng-show="step=='reference'" ng-include="'/app/views/reference.html'"></section>
+
+                            <nav>
+                                <ul class="pager">
+                                    <li class="previous" ng-hide="step=='personalInformation'"><a ng-click="PreviousStep()" class="btn-theme"><span>←</span> Back</a></li>
+                                    <li class="next" ng-hide="step=='reference'"><a ng-click="NextStep()" class="btn-theme">Next <span>→</span></a></li>
+                                </ul>
+                            </nav>
+                            @*<button type="button" class="btn btn-theme btn-default" ng-click="NextStep()">Next →</button>*@                           
                         </div><!-- end box item details -->
 
 

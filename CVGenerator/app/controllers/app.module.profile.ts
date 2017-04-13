@@ -7,10 +7,17 @@ module CVGen.Controller {
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
-                function($scope, logger, profileService: Services.ProfileService) {
+                function ($scope, logger, profileService: Services.ProfileService) {
 
                     $scope.InitCreateProfile = () => {
-                        
+                        $scope.steps = [
+                            'personalInformation',
+                            'workExperience',
+                            'skill',
+                            'reference'
+                        ];
+                        $scope.step = $scope.steps[0];
+
                         $scope.Profile = {};
                         $scope.Profile.Educations = [];
                     }
@@ -48,12 +55,40 @@ module CVGen.Controller {
                         alert('GotoRef');
                     };
 
+                    $scope.PreviousStep = () => {
+                        if ($scope.step == $scope.steps[0]) {
+                            return;
+                        }
+
+                        for (var index = 0; index < $scope.steps.length; index++) {
+                            if ($scope.step == $scope.steps[index]) {
+                                $scope.step = $scope.steps[index - 1];
+                                return;
+                            }
+                        }
+                    };
+
+                    $scope.NextStep = () => {
+                        if ($scope.step == $scope.steps[$scope.steps.length - 1])
+                        {
+                            return;
+                        }
+
+                        for (var index = 0; index < $scope.steps.length; index++) {
+                            if ($scope.step == $scope.steps[index])
+                            {
+                                $scope.step = $scope.steps[index + 1];
+                                return;
+                            }
+                        }                     
+                    };
+
                     $scope.AddEducation = () => {
-                        $scope.Profile.Educations.push({Id: Math.random(), University: '', FromYear: '', ToYear: '', Description: '' });
+                        $scope.Profile.Educations.push({ Id: Math.random(), University: '', FromYear: '', ToYear: '', Description: '' });
                     };
 
                     $scope.RemoveEducation = (index) => {
-                        $scope.Profile.Educations.splice(index,1);
+                        $scope.Profile.Educations.splice(index, 1);
                     };
                 });
         }
