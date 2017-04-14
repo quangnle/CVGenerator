@@ -52,11 +52,16 @@ namespace CVGenerator.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Register(Login model)
+        public ActionResult Register(Register model)
         {
+            if (model.Password != model.PasswordConfirmation)
+            {
+                ModelState.AddModelError("", "Invalid password confirmation.");
+            }
+
             using (var context = new GvGenEntities())
             {
-                var mailExists = context.TUsers.First(m => m.Email == model.Email);
+                var mailExists = context.TUsers.FirstOrDefault(m => m.Email == model.Email);
                 if (mailExists == null)
                 {
                     var entity = new TUser();
@@ -65,8 +70,8 @@ namespace CVGenerator.Controllers
                     entity.Password = model.Password;
                     entity.Role = (int)AuthRole.User;
                     context.TUsers.Add(entity);
-
-                    return RedirectToAction("Index", "Home");
+                    context.SaveChanges();
+                    return RedirectToAction("ConfirmEmail");
                 }
                 else
                 {
@@ -76,6 +81,17 @@ namespace CVGenerator.Controllers
             return View("login");
         }
 
+        [AllowAnonymous]
+        public ActionResult ConfirmEmail()
+        {
+            return View();
+        }
 
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
