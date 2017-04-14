@@ -1,6 +1,9 @@
-﻿using CVGenerator.Utilities;
+﻿using CVGenerator.Entities;
+using CVGenerator.Models;
+using CVGenerator.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,5 +14,58 @@ namespace CVGenerator.Controllers.API
     [HandleApiException]
     public abstract class BaseApiController : ApiController
     {
+        public virtual IEnumerable<T> GetNewItems<T>(List<T> lst)
+        {
+            return lst;
+        }
+
+        public virtual IEnumerable<T> GetExistedItems<T>(List<T> lst)
+        {
+            return lst;
+        }
+
+        public bool UpdateConvertibleModelList<T, K>(List<T> lst) where T:IConvertibleModel<K> where K:IEntity
+        {            
+            var newItems = GetNewItems(lst);
+            var existedItems = GetExistedItems(lst);
+
+            using (var context = new GvGenEntities())
+            {
+                var set = context.Set(typeof(K));
+                // create new skills
+                if (newItems != null)
+                {
+                    foreach (var item in newItems)
+                    { 
+                        set.Add(item.GetEntity());
+                    }
+                }
+
+                // update existing skills
+                if (existedItems != null)
+                {
+                    var currentItems = set.ToListAsync().Result;
+                    foreach (var item in existedItems)
+                    {
+                        var entity = currentItems.FirstOrDefault(s => (s as IEntity).Id == item.Id);
+                        if (entity == null)
+                            return false;
+
+                        item.Update((K)entity);
+                    }
+
+                    foreach (var entity in currentItems.ToList())
+                    {
+                        var foundSkill = existedItems.FirstOrDefault(s => s.Id == (entity as IEntity).Id);
+                        if (foundSkill == null)
+                        {
+                            set.Remove(entity);
+                        }
+                    }
+                }
+
+                return true;
+            }
+        }
     }
 }

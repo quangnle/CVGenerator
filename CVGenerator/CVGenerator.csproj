@@ -206,6 +206,7 @@
     <Compile Include="Controllers\API\AccountController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
     <Compile Include="Controllers\API\ProfileController.cs" />
+    <Compile Include="Controllers\API\SkillController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Entities\CvGenModel.Context.cs">
@@ -223,6 +224,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CvGenModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\TSkillExt.cs" />
     <Compile Include="Entities\TEducation.cs">
       <DependentUpon>CvGenModel.tt</DependentUpon>
     </Compile>
@@ -252,6 +255,7 @@
     </Compile>
     <Compile Include="Models\AuthRole.cs" />
     <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\IConvertibleModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Reference.cs" />
