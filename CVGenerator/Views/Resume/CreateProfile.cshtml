@@ -26,7 +26,7 @@
                                     <li class="next" ng-hide="step=='reference'"><a ng-click="NextStep()" class="btn-theme">Next <span>→</span></a></li>
                                 </ul>
                             </nav>
-                            @*<button type="button" class="btn btn-theme btn-default" ng-click="NextStep()">Next →</button>*@                           
+                            @*<button type="button" class="btn btn-theme btn-default" ng-click="NextStep()">Next →</button>*@
                         </div><!-- end box item details -->
 
 
@@ -38,19 +38,19 @@
                             <div class="text-right">
                                 <p><a ng-click="SubmitProfile()" class="btn btn-theme btn-danger btn-block-xs">Save Resume</a></p>
                                 @*<p>Updated: February 16, 2015</p>*@
-                                <p><a href="#" class="btn btn-theme btn-t-primary btn-block-xs">Personal Information</a></p>
-                                <p><a href="#" class="btn btn-theme btn-line btn-block-xs">Education</a></p>
-                                <p><a href="#" class="btn btn-theme btn-line btn-block-xs">Work Experience</a></p>
-                                <p><a href="#" class="btn btn-theme btn-line btn-block-xs">Skill</a></p>
-                                <p><a href="#" class="btn btn-theme btn-line btn-block-xs">Reference</a></p>
+                                <p><a href class="btn btn-theme btn-t-primary btn-block-xs">Personal Information</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Education</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Work Experience</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Skill</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Reference</a></p>
 
                                 @*<p>Share This Resume <span class="space-inline-10"></span> :</p>
-                                <p class="share-btns">
-                                    <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" class="btn btn-warning"><i class="fa fa-pinterest"></i></a>
-                                </p>*@
+                                    <p class="share-btns">,
+                                        <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i></a>
+                                        <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" class="btn btn-danger"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#" class="btn btn-warning"><i class="fa fa-pinterest"></i></a>
+                                    </p>*@
                             </div>
                         </div><!-- box affix right -->
 

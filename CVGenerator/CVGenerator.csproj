@@ -144,7 +144,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\views\education.html" />
     <Content Include="app\views\footer.html" />
+    <Content Include="app\views\personalInformation.html" />
+    <Content Include="app\views\reference.html" />
+    <Content Include="app\views\skill.html" />
+    <Content Include="app\views\workExperience.html" />
     <Content Include="Content\Main\css\theme-custom.css" />
     <Content Include="Content\Main\css\theme.css" />
     <Content Include="Content\Main\images\apple-touch-icon.png" />

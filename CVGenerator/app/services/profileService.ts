@@ -8,11 +8,35 @@ module CVGen.Services {
             this.httpService = $http;
         }
 
-        SubmitProfile = (profileModel) => {           
+        SubmitProfile = (profileModel) => {
             return this.httpService({
                 data: profileModel,
                 method: 'POST',
-                url:  "/api/Profile/SubmitProfile",
+                url: "/api/Profile/SubmitProfile",
+            });
+        }
+
+        SubmitPersonalInfo = (model) => {
+            return this.httpService({
+                data: model,
+                method: 'POST',
+                url: "/api/Profile/SubmitPersonalInfo",
+            });
+        }
+
+        SubmitSkills = (model) => {
+            return this.httpService({
+                data: model,
+                method: 'POST',
+                url: "/api/Skill/SubmitSkills",
+            });
+        }
+
+        SubmitEdus = (model) => {
+            return this.httpService({
+                data: model,
+                method: 'POST',
+                url: "/api/Edu/SubmitEdus",
             });
         }
 

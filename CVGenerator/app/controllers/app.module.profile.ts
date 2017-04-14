@@ -10,28 +10,29 @@ module CVGen.Controller {
                 function ($scope, logger, profileService: Services.ProfileService) {
 
                     $scope.InitCreateProfile = () => {
+                        $scope.ProfileId = null;
                         $scope.steps = [
                             'personalInformation',
+                            'education',
                             'workExperience',
                             'skill',
                             'reference'
                         ];
+                        $scope.previousStep = null;
                         $scope.step = $scope.steps[0];
 
                         $scope.Profile = {};
-                        $scope.Profile.Educations = [];
+                        $scope.Educations = [];
                     }
 
-                    $scope.SubmitProfile = () => {
-                        // doing submit
+                    $scope.SubmitPersonalInfo = () => {                       
                         var profile = $scope.Profile;
-                        profileService.SubmitProfile(profile)
+                        profileService.SubmitPersonalInfo(profile)
                             .then((response) => {
                                 if (response.status == 200) {
-                                    logger.log("OK");
+                                    $scope.ProfileId = 1;
                                 }
                             });
-                        //alert('submitted');
                     };
 
                     $scope.GotoWorkExp = () => {
@@ -41,8 +42,7 @@ module CVGen.Controller {
                     };
 
                     $scope.GotoEducation = () => {
-                        // doing submit
-                        alert('GotoEducation');
+                        $scope.AddEducation();
                     };
 
                     $scope.GotoSkill = () => {
@@ -55,6 +55,31 @@ module CVGen.Controller {
                         alert('GotoRef');
                     };
 
+                    $scope.AcctionStep = () => {
+                        switch ($scope.previousStep) {
+                            case 'personalInformation': {
+                                $scope.SubmitPersonalInfo();
+                                break;
+                            }
+                            case 'education': {
+                                //$scope.SubmitPersonalInfo();
+                                //$scope.GotoEducation();
+                                break;
+                            }
+                        }
+
+                        switch ($scope.step) {
+                            case 'personalInformation': {
+                                //statements; 
+                                break;
+                            }
+                            case 'education': {                        
+                                $scope.GotoEducation();
+                                break;
+                            }
+                        }
+                    };
+
                     $scope.PreviousStep = () => {
                         if ($scope.step == $scope.steps[0]) {
                             return;
@@ -62,33 +87,44 @@ module CVGen.Controller {
 
                         for (var index = 0; index < $scope.steps.length; index++) {
                             if ($scope.step == $scope.steps[index]) {
+                                $scope.previousStep = $scope.step;
                                 $scope.step = $scope.steps[index - 1];
+                                $scope.AcctionStep();
                                 return;
                             }
                         }
                     };
 
                     $scope.NextStep = () => {
-                        if ($scope.step == $scope.steps[$scope.steps.length - 1])
-                        {
+                        if ($scope.step == $scope.steps[$scope.steps.length - 1]) {
                             return;
                         }
 
                         for (var index = 0; index < $scope.steps.length; index++) {
-                            if ($scope.step == $scope.steps[index])
-                            {
+                            if ($scope.step == $scope.steps[index]) {
+                                $scope.previousStep = $scope.step;
                                 $scope.step = $scope.steps[index + 1];
+                                $scope.AcctionStep();
                                 return;
                             }
-                        }                     
+                        }
                     };
 
                     $scope.AddEducation = () => {
-                        $scope.Profile.Educations.push({ Id: Math.random(), University: '', FromYear: '', ToYear: '', Description: '' });
+                        $scope.Educations.push({ University: '', FromYear: '', ToYear: '', Description: '' });
                     };
 
                     $scope.RemoveEducation = (index) => {
-                        $scope.Profile.Educations.splice(index, 1);
+                        $scope.Educations.splice(index, 1);
+                    };
+
+                    $scope.SubmitEdus = (index) => {
+                        profileService.SubmitEdus($scope.Educations)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    logger.log("OK");
+                                }
+                            });
                     };
                 });
         }

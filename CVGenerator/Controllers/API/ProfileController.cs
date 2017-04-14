@@ -30,19 +30,19 @@ namespace CVGenerator.Controllers.API
         {
             var entity = profile.GetNew();
             using (var db = new GvGenEntities())
-            {       
+            {
                 db.TProfiles.Add(entity);
                 db.SaveChanges();
             }
             //.var a=new HttpResponseMessage()
-            var message = new HttpResponseMessage(HttpStatusCode.OK);
-           // message.Content = entity.Id;
-           // var aaa= Request.CreateResponse<int>(HttpStatusCode.OK, Tobject);
+            //  var message = new HttpResponseMessage(HttpStatusCode.OK);
+            // message.Content = entity.Id;
+            var message = Request.CreateResponse<int>(HttpStatusCode.OK, entity.Id);
             return message;
         }
 
         [HttpPost]
-        public HttpResponseMessage SubmitEducation(int profileId,[FromBody]List<Education> educations)
+        public HttpResponseMessage SubmitEducation(int profileId, [FromBody]List<Education> educations)
         {
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

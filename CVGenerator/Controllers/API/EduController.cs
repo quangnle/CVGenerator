@@ -24,7 +24,7 @@ namespace CVGenerator.Controllers.API
         }
 
         [HttpPost]
-        public HttpResponseMessage SubmitWorkExps([FromBody]List<Education> edus)
+        public HttpResponseMessage SubmitEdus([FromBody]List<Education> edus)
         {
             if (edus == null || edus.Count == 0)
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
