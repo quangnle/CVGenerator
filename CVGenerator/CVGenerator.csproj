@@ -144,11 +144,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\views\workExperience.html" />
-    <Content Include="app\views\skill.html" />
-    <Content Include="app\views\reference.html" />
-    <Content Include="app\views\education.html" />
-    <Content Include="app\views\personalInformation.html" />
     <Content Include="app\views\footer.html" />
     <Content Include="Content\Main\css\theme-custom.css" />
     <Content Include="Content\Main\css\theme.css" />
@@ -210,8 +205,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
+    <Compile Include="Controllers\API\EduController.cs" />
     <Compile Include="Controllers\API\ProfileController.cs" />
     <Compile Include="Controllers\API\SkillController.cs" />
+    <Compile Include="Controllers\API\WorkExpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Entities\CvGenModel.Context.cs">
@@ -229,8 +226,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CvGenModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\IEntity.cs" />
-    <Compile Include="Entities\TSkillExt.cs" />
+    <Compile Include="Entities\Exts\IEntity.cs" />
+    <Compile Include="Entities\Exts\TEducationExt.cs" />
+    <Compile Include="Entities\Exts\TReferenceExt.cs" />
+    <Compile Include="Entities\Exts\TSkillExt.cs" />
+    <Compile Include="Entities\Exts\TWorkExperienceExt.cs" />
     <Compile Include="Entities\TEducation.cs">
       <DependentUpon>CvGenModel.tt</DependentUpon>
     </Compile>
@@ -323,8 +323,6 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Resume\CreateProfile -BAK.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

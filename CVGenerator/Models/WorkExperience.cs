@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CVGenerator.Models
 {
-    public class WorkExperience
+    public class WorkExperience : IConvertibleModel<TWorkExperience>
     {
         private TWorkExperience _entity;
 
@@ -25,9 +25,45 @@ namespace CVGenerator.Models
             IdProfile = _entity.IdProfile;
             Company = _entity.Company;
             FromTime = string.Format("{0}/{1}", _entity.FromMonth, _entity.FromYear);
-            ToTime = string.Format("{0}/{1}", _entity.ToMonth, _entity.ToYear);
+            if (_entity.ToMonth == -1 && _entity.ToYear == -1)
+            {
+                ToTime = "now";
+            }
+            else
+            {
+                ToTime = string.Format("{0}/{1}", _entity.ToMonth, _entity.ToYear);
+            }
             Position = _entity.Position;
             Description = _entity.Description;
+        }
+
+        public void Update(TWorkExperience entity)
+        {
+            entity.Company = Company;
+            entity.Position = Position;
+
+            entity.FromMonth = int.Parse(FromTime.Split('/')[0]);
+            entity.FromYear = int.Parse(FromTime.Split('/')[1]);
+
+            if (ToTime.ToLower() == "now")
+            {
+                entity.ToMonth = -1;
+                entity.ToYear = -1;
+            }
+            else
+            {
+                entity.ToMonth = int.Parse(ToTime.Split('/')[0]);
+                entity.ToYear = int.Parse(ToTime.Split('/')[1]);
+            }
+
+            entity.Description = Description;
+        }
+
+        public TWorkExperience GetEntity()
+        {
+            TWorkExperience entity = new TWorkExperience();
+            Update(entity);
+            return entity;
         }
     }
 }

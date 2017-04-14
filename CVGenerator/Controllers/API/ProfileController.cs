@@ -37,7 +37,7 @@ namespace CVGenerator.Controllers.API
             //.var a=new HttpResponseMessage()
             var message = new HttpResponseMessage(HttpStatusCode.OK);
            // message.Content = entity.Id;
-           var aaa= Request.CreateResponse<int>(HttpStatusCode.OK, Tobject);
+           // var aaa= Request.CreateResponse<int>(HttpStatusCode.OK, Tobject);
             return message;
         }
 
