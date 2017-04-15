@@ -11,13 +11,13 @@ namespace CVGenerator.Controllers.API
 {
     public class EduController : BaseApiController
     {
-        public override IEnumerable<T> GetExistedItems<T>(List<T> lst)
+        protected override IEnumerable<T> GetExistedItems<T>(List<T> lst)
         {
             var existedEdu = lst.Where(s => (s as Education).IdProfile > 0);
             return existedEdu;
         }
 
-        public override IEnumerable<T> GetNewItems<T>(List<T> lst)
+        protected override IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
             var newEdu = lst.Where(s => (s as Education).IdProfile == -1);
             return newEdu;

@@ -18,7 +18,6 @@ module CVGen.Controller {
                             'skill',
                             'reference'
                         ];
-                        $scope.previousStep = null;
                         $scope.step = $scope.steps[0];
 
                         $scope.Profile = {};
@@ -55,8 +54,8 @@ module CVGen.Controller {
                         alert('GotoRef');
                     };
 
-                    $scope.AcctionStep = () => {
-                        switch ($scope.previousStep) {
+                    $scope.SubmitAcction = () => {
+                        switch ($scope.step) {
                             case 'personalInformation': {
                                 $scope.SubmitPersonalInfo();
                                 break;
@@ -67,7 +66,9 @@ module CVGen.Controller {
                                 break;
                             }
                         }
+                    }
 
+                    $scope.AcctionStep = () => {
                         switch ($scope.step) {
                             case 'personalInformation': {
                                 //statements; 
@@ -87,7 +88,6 @@ module CVGen.Controller {
 
                         for (var index = 0; index < $scope.steps.length; index++) {
                             if ($scope.step == $scope.steps[index]) {
-                                $scope.previousStep = $scope.step;
                                 $scope.step = $scope.steps[index - 1];
                                 $scope.AcctionStep();
                                 return;
@@ -102,7 +102,6 @@ module CVGen.Controller {
 
                         for (var index = 0; index < $scope.steps.length; index++) {
                             if ($scope.step == $scope.steps[index]) {
-                                $scope.previousStep = $scope.step;
                                 $scope.step = $scope.steps[index + 1];
                                 $scope.AcctionStep();
                                 return;

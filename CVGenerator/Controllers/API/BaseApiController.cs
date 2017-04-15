@@ -14,17 +14,17 @@ namespace CVGenerator.Controllers.API
     [HandleApiException]
     public abstract class BaseApiController : ApiController
     {
-        public virtual IEnumerable<T> GetNewItems<T>(List<T> lst)
+        protected virtual IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
             return lst;
         }
 
-        public virtual IEnumerable<T> GetExistedItems<T>(List<T> lst)
+        protected virtual IEnumerable<T> GetExistedItems<T>(List<T> lst)
         {
             return lst;
         }
 
-        public bool UpdateConvertibleModelList<T, K>(List<T> lst) where T:IConvertibleModel<K> where K:IEntity
+        protected bool UpdateConvertibleModelList<T, K>(List<T> lst) where T:IConvertibleModel<K> where K:IEntity
         {            
             var newItems = GetNewItems(lst);
             var existedItems = GetExistedItems(lst);

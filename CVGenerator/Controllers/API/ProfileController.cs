@@ -11,6 +11,12 @@ namespace CVGenerator.Controllers.API
 {
     public class ProfileController : BaseApiController
     {
+        [HttpGet]
+        public int Ping()
+        {
+            return 1;
+        }
+
         [HttpPost]
         public HttpResponseMessage SubmitProfile([FromBody]Profile profile)
         {
@@ -34,47 +40,22 @@ namespace CVGenerator.Controllers.API
                 db.TProfiles.Add(entity);
                 db.SaveChanges();
             }
-            //.var a=new HttpResponseMessage()
-            //  var message = new HttpResponseMessage(HttpStatusCode.OK);
-            // message.Content = entity.Id;
             var message = Request.CreateResponse<int>(HttpStatusCode.OK, entity.Id);
             return message;
+
+            //return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpPost]
-        public HttpResponseMessage SubmitEducation(int profileId, [FromBody]List<Education> educations)
-        {
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
+        //[HttpGet]
+        //public TProfile GetProfile(int id)
+        //{
+        //    using (var db = new GvGenEntities())
+        //    {
+        //        var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
 
-        [HttpPost]
-        public HttpResponseMessage SubmitWorkExperience([FromBody]Profile profile)
-        {
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpPost]
-        public HttpResponseMessage SubmitReference([FromBody]Profile profile)
-        {
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpPost]
-        public HttpResponseMessage SubmitSkill([FromBody]Profile profile)
-        {
-            return new HttpResponseMessage(HttpStatusCode.OK);
-        }
-
-        [HttpGet]
-        public TProfile GetProfile(int id)
-        {
-            using (var db = new GvGenEntities())
-            {
-                var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
-
-                return entity;
-            }
-        }
+        //        return entity;
+        //    }
+        //}
 
         public List<TProfile> GetProfileByUserId(int idUser)
         {

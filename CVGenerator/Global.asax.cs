@@ -14,6 +14,8 @@ namespace CVGenerator
         {
             log4net.Config.XmlConfigurator.Configure();
             AreaRegistration.RegisterAllAreas();
+
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);

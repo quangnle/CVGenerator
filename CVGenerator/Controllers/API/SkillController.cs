@@ -11,13 +11,13 @@ namespace CVGenerator.Controllers.API
 {
     public class SkillController : BaseApiController
     {
-        public override IEnumerable<T> GetExistedItems<T>(List<T> lst)
+        protected override IEnumerable<T> GetExistedItems<T>(List<T> lst)
         {   
             var existedSkills = lst.Where(s => (s as Skill).IdProfile > 0);
             return existedSkills;
         }
 
-        public override IEnumerable<T> GetNewItems<T>(List<T> lst)
+        protected override IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
             var newSkills = lst.Where(s => (s as Skill).IdProfile == -1);
             return newSkills;

@@ -20,13 +20,14 @@
                             <section ng-show="step=='skill'" ng-include="'/app/views/skill.html'"></section>
                             <section ng-show="step=='reference'" ng-include="'/app/views/reference.html'"></section>
 
+                            <button type="button" class="btn btn-theme btn-t-primary" ng-click="SubmitAcction()"><i class="fa fa-save"></i> Save</button>
+
                             <nav>
                                 <ul class="pager">
-                                    <li class="previous" ng-hide="step=='personalInformation'"><a ng-click="PreviousStep()" class="btn-theme"><span>←</span> Back</a></li>
-                                    <li class="next" ng-hide="step=='reference'"><a ng-click="NextStep()" class="btn-theme">Next <span>→</span></a></li>
+                                    <li class="previous" ng-hide="step=='personalInformation'"><a href ng-click="PreviousStep()" class="btn-theme"><span>←</span> Back</a></li>
+                                    <li class="next" ng-hide="step=='reference'"><a href ng-click="NextStep()" class="btn-theme">Next <span>→</span></a></li>
                                 </ul>
                             </nav>
-                            @*<button type="button" class="btn btn-theme btn-default" ng-click="NextStep()">Next →</button>*@
                         </div><!-- end box item details -->
 
 
