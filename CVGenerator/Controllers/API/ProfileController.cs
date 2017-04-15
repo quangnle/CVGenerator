@@ -46,16 +46,17 @@ namespace CVGenerator.Controllers.API
             //return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        //[HttpGet]
-        //public TProfile GetProfile(int id)
-        //{
-        //    using (var db = new GvGenEntities())
-        //    {
-        //        var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
+        [HttpGet]
+        //[Route("api/Profile/GetProfile")]
+        public TProfile GetProfile(int id)
+        {
+            using (var db = new GvGenEntities())
+            {
+                var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
 
-        //        return entity;
-        //    }
-        //}
+                return entity;
+            }
+        }
 
         public List<TProfile> GetProfileByUserId(int idUser)
         {
