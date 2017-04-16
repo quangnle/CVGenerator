@@ -39,11 +39,11 @@
                             <div class="text-right">
                                 <p><a ng-click="SubmitProfile()" class="btn btn-theme btn-danger btn-block-xs">Save Resume</a></p>
                                 @*<p>Updated: February 16, 2015</p>*@
-                                <p><a href class="btn btn-theme btn-t-primary btn-block-xs">Personal Information</a></p>
-                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Education</a></p>
-                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Work Experience</a></p>
-                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Skill</a></p>
-                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" class="btn btn-theme btn-block-xs">Reference</a></p>
+                                <p><a href class="btn btn-theme btn-t-primary btn-block-xs" ng-click="GotoPersonalInfo()">Personal Information</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" ng-click="GotoEducation()" class="btn btn-theme btn-block-xs">Education</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" ng-click="GotoWorkExp()" class="btn btn-theme btn-block-xs">Work Experience</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" ng-click="GotoSkill()" class="btn btn-theme btn-block-xs">Skill</a></p>
+                                <p><a href ng-class="{'btn-t-primary': ProfileId != null,'btn-line': ProfileId == null}" ng-click="GotoRef()" class="btn btn-theme btn-block-xs">Reference</a></p>
 
                                 @*<p>Share This Resume <span class="space-inline-10"></span> :</p>
                                     <p class="share-btns">,

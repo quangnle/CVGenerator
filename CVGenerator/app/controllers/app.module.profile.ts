@@ -11,6 +11,7 @@ module CVGen.Controller {
 
                     $scope.InitCreateProfile = () => {
                         $scope.ProfileId = null;
+
                         $scope.steps = [
                             'personalInformation',
                             'education',
@@ -24,34 +25,35 @@ module CVGen.Controller {
                         $scope.Educations = [];
                     }
 
-                    $scope.SubmitPersonalInfo = () => {                       
+                    $scope.SubmitPersonalInfo = () => {
                         var profile = $scope.Profile;
                         profileService.SubmitPersonalInfo(profile)
                             .then((response) => {
                                 if (response.status == 200) {
-                                    $scope.ProfileId = 1;
+                                    logger.log("Saved successfully.");
+                                    $scope.ProfileId = response.data;
                                 }
                             });
                     };
 
+                    $scope.GotoPersonalInfo = () => {
+                        $scope.step = 'personalInformation';
+                    };
+
                     $scope.GotoWorkExp = () => {
-                        logger.log("asdads");
-                        // doing submit
-                        //  alert('submitted');
+                        $scope.step = 'workExperience';
                     };
 
                     $scope.GotoEducation = () => {
-                        $scope.AddEducation();
+                        $scope.step = 'education';
                     };
 
                     $scope.GotoSkill = () => {
-                        // doing submit
-                        alert('GotoSkill');
+                        $scope.step = 'skill';
                     };
 
                     $scope.GotoRef = () => {
-                        // doing submit
-                        alert('GotoRef');
+                        $scope.step = 'reference';
                     };
 
                     $scope.SubmitAcction = () => {
@@ -61,8 +63,7 @@ module CVGen.Controller {
                                 break;
                             }
                             case 'education': {
-                                //$scope.SubmitPersonalInfo();
-                                //$scope.GotoEducation();
+                                $scope.SubmitEdus();
                                 break;
                             }
                         }
@@ -71,10 +72,10 @@ module CVGen.Controller {
                     $scope.AcctionStep = () => {
                         switch ($scope.step) {
                             case 'personalInformation': {
-                                //statements; 
+                                $scope.GotoPersonalInfo();
                                 break;
                             }
-                            case 'education': {                        
+                            case 'education': {
                                 $scope.GotoEducation();
                                 break;
                             }
@@ -110,14 +111,20 @@ module CVGen.Controller {
                     };
 
                     $scope.AddEducation = () => {
-                        $scope.Educations.push({ University: '', FromYear: '', ToYear: '', Description: '' });
+                        $scope.Educations.push({
+                            University: '',
+                            FromYear: '',
+                            ToYear: '',
+                            Description: '',
+                            IdProfile: $scope.ProfileId
+                        });
                     };
 
                     $scope.RemoveEducation = (index) => {
                         $scope.Educations.splice(index, 1);
                     };
 
-                    $scope.SubmitEdus = (index) => {
+                    $scope.SubmitEdus = () => {
                         profileService.SubmitEdus($scope.Educations)
                             .then((response) => {
                                 if (response.status == 200) {

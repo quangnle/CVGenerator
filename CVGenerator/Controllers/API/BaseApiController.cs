@@ -24,8 +24,8 @@ namespace CVGenerator.Controllers.API
             return lst;
         }
 
-        protected bool UpdateConvertibleModelList<T, K>(List<T> lst) where T:IConvertibleModel<K> where K:IEntity
-        {            
+        protected bool UpdateConvertibleModelList<T, K>(List<T> lst) where T : IConvertibleModel<K> where K : IEntity
+        {
             var newItems = GetNewItems(lst);
             var existedItems = GetExistedItems(lst);
 
@@ -36,7 +36,7 @@ namespace CVGenerator.Controllers.API
                 if (newItems != null)
                 {
                     foreach (var item in newItems)
-                    { 
+                    {
                         set.Add(item.GetEntity());
                     }
                 }
@@ -66,6 +66,6 @@ namespace CVGenerator.Controllers.API
 
                 return true;
             }
-        }
+        }       
     }
 }

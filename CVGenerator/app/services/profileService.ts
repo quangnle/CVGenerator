@@ -40,5 +40,14 @@ module CVGen.Services {
             });
         }
 
+        GetEdus = (idProfile) => {
+            var params = { idProfile: idProfile };
+            return this.httpService({
+                params: params,
+                method: 'GET',
+                url: "/api/Edu/GetEdus",
+            });
+        }
+
     }
 }

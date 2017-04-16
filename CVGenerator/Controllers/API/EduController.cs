@@ -32,7 +32,17 @@ namespace CVGenerator.Controllers.API
             var success = UpdateConvertibleModelList<Education, TEducation>(edus);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
+        }
 
+        [HttpGet]
+        //[Route("api/Profile/GetProfile")]
+        public List<TEducation> GetEdus(int idProfile)
+        {
+            using (var db = new GvGenEntities())
+            {
+                var lst = db.TEducations.Where(e => e.IdProfile == idProfile).ToList();
+                return lst;
+            }
         }
     }
 }
