@@ -18,7 +18,7 @@
             },
 
             responseError: function (res) {
-                switch (res.status) {                  
+                switch (res.status) {
                     default:
                         debugger;
                         logger.logError("# RESPONSE ERROR STATUS CODE " + res.status);
@@ -30,6 +30,7 @@
     }
 
     cvGeneratorApp.service("profileService", CVGen.Services.ProfileService);
+    cvGeneratorApp.service("templateService", CVGen.Services.TemplateService);
 
     CVGen.Controller.Home.Configure(cvGeneratorApp);
     CVGen.Controller.Resume.Configure(cvGeneratorApp);

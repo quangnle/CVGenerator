@@ -185,6 +185,67 @@
     <Content Include="Content\Main\images\preloader.gif" />
     <Content Include="Content\Main\images\World_map_png-7.png" />
     <Content Include="Content\Main\js\theme.js" />
+    <Content Include="CvTemplates\DarkBlue\contact.html" />
+    <Content Include="CvTemplates\DarkBlue\css\style-print.css" />
+    <Content Include="CvTemplates\DarkBlue\css\style.css" />
+    <Content Include="CvTemplates\DarkBlue\fonts\fonts.css" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-bold\gotham-bold-webfont.svg" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-book\gotham-book-webfont.svg" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-light\gotham-light-webfont.svg" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-medium\gotham-medium-webfont.svg" />
+    <Content Include="CvTemplates\DarkBlue\images\bg.jpg" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_2.jpg" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_img.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_img_bk.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_nav_floating.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_top.gif" />
+    <Content Include="CvTemplates\DarkBlue\images\bg_top.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bullet_disc_blue.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bullet_disc_grey.png" />
+    <Content Include="CvTemplates\DarkBlue\images\bullet_slash.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_000_backtop.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_0ad_backtop.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_download.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_fb.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_folder.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_google.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_linked.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_mail.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_print.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_search.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_skype.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_tw.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_grey_yahoo.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_add.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_birthday.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_mail.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_name.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_national.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_phone.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_phone2.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_p_web.png" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\icon_white_search.png" />
+    <Content Include="CvTemplates\DarkBlue\images\imgs\profile_pooh.jpg" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_0.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_10.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_100.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_20.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_30.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_40.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_50.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_60.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_70.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_80.png" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\rate_dblue_90.png" />
+    <Content Include="CvTemplates\DarkBlue\index.html" />
+    <Content Include="CvTemplates\DarkBlue\js\cufon\cufon-yui.js" />
+    <Content Include="CvTemplates\DarkBlue\js\cufon\hattori_hanzo.font.js" />
+    <Content Include="CvTemplates\DarkBlue\js\jquery-1.4.2.min.js" />
+    <Content Include="CvTemplates\DarkBlue\js\prettyphoto\css.prettyPhoto.css" />
+    <Content Include="CvTemplates\DarkBlue\js\prettyphoto\jquery.prettyPhoto.js" />
+    <Content Include="CvTemplates\DarkBlue\js\tipsy\css.tipsy.css" />
+    <Content Include="CvTemplates\DarkBlue\js\tipsy\jquery.tipsy.js" />
+    <Content Include="CvTemplates\DarkBlue\thumb.PNG" />
     <Content Include="Entities\CvGenModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CvGenModel.Context.cs</LastGenOutput>
@@ -210,6 +271,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\AccountController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
+    <Compile Include="Controllers\API\TempController.cs" />
     <Compile Include="Controllers\API\EduController.cs" />
     <Compile Include="Controllers\API\ProfileController.cs" />
     <Compile Include="Controllers\API\SkillController.cs" />
@@ -328,6 +390,23 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="CvTemplates\DarkBlue\css\.DS_Store" />
+    <Content Include="CvTemplates\DarkBlue\fonts\.DS_Store" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-bold\gotham-bold-webfont.eot" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-bold\gotham-bold-webfont.ttf" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-bold\gotham-bold-webfont.woff" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-book\gotham-book-webfont.eot" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-book\gotham-book-webfont.ttf" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-book\gotham-book-webfont.woff" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-light\gotham-light-webfont.eot" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-light\gotham-light-webfont.ttf" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-light\gotham-light-webfont.woff" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-medium\gotham-medium-webfont.eot" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-medium\gotham-medium-webfont.ttf" />
+    <Content Include="CvTemplates\DarkBlue\fonts\gotham-medium\gotham-medium-webfont.woff" />
+    <Content Include="CvTemplates\DarkBlue\images\.DS_Store" />
+    <Content Include="CvTemplates\DarkBlue\images\icon\.DS_Store" />
+    <Content Include="CvTemplates\DarkBlue\images\rate\.DS_Store" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -335,13 +414,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CvTemplates\DarkBlue\images\projects\" />
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.profile.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\references.ts" />
+    <TypeScriptCompile Include="app\services\templateService.ts" />
     <TypeScriptCompile Include="app\services\profileService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
@@ -370,7 +452,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52714</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

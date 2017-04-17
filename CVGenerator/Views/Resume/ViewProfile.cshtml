@@ -3,5 +3,80 @@
     ViewBag.Title = "ViewProfile";
 }
 
-<h2>ViewProfile</h2>
 
+<div ng-controller="ResumeCtrl" ng-init="InitViewProfile()">
+
+
+
+    <div ng-repeat="temp in Templates" class="block-section line-bottom" ng-class="{'bg-color2': $odd,'bg-color1': $even}">
+        <div class="container">
+            <div class="row">
+                <div ng-if="$even" class="col-md-6 text-center hidden-sm hidden-xs">
+                    <img ng-src="{{temp.Thumbnail}}" alt="{{temp.Name}}">
+                </div>
+
+                <div class="col-md-6 text-center-sm">
+                    <h2>{{temp.Name}}</h2>
+                    <p>{{temp.Description}}</p>
+                    <p><a href="job_post_2.html" class="btn btn-theme btn-t-primary">Export</a></p>
+                    @*<p><a href="#">Learn more about posting your jobs on JobPlanet</a></p>*@
+                </div>
+
+                <div ng-if="$odd" class="col-md-6 text-center hidden-sm hidden-xs">
+                    <img  ng-src="{{temp.Thumbnail}}" alt="{{temp.Name}}">                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- block promo -->
+    @*<div class="block-section bg-color1 line-bottom">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 text-center hidden-sm hidden-xs"> <img src="http://www.llfashion.co.uk/ekmps/shops/6d75f1/images/women-ladies-sports-bra-bandeau-boob-tube-crop-top-bras-s-xxl-[2]-28429-p[ekm]500x288[ekm].jpg" alt=""></div>
+                <div class="col-md-6 text-center-sm">
+                    <h2>Company Profile</h2>
+                    <p>Post your jobs directly to JobPlanet in minutes. You'll get quality applicants sent directly to your inbox, no website required.</p>
+                    <p><a href="company_page.html" class="btn btn-theme btn-t-primary">Learn more about company pages</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- end block promo -->
+    <!-- block promo -->
+    <div class="block-section bg-color2 line-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center-sm">
+                    <h2>Resume Search</h2>
+                    <p>Post your jobs directly to JobPlanet in minutes. You'll get quality applicants sent directly to your inbox, no website required.</p>
+                    <p><a href="resume_list.html" class=" btn btn-theme btn-t-primary">Find Resumes</a></p>
+                    <p><a href="#">Learn more about JobPlanet Resume</a></p>
+                </div>
+                <div class="col-md-6 text-center hidden-sm hidden-xs">
+                    <img src="http://www.llfashion.co.uk/ekmps/shops/6d75f1/images/women-ladies-sports-bra-bandeau-boob-tube-crop-top-bras-s-xxl-[2]-28429-p[ekm]500x288[ekm].jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div><!-- end block promo -->
+    <!-- block promo -->
+    <div class="block-section bg-color1 line-bottom">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 text-center hidden-sm hidden-xs"> <img src="http://www.llfashion.co.uk/ekmps/shops/6d75f1/images/women-ladies-sports-bra-bandeau-boob-tube-crop-top-bras-s-xxl-[2]-28429-p[ekm]500x288[ekm].jpg" alt=""></div>
+                <div class="col-md-6 text-center-sm">
+                    <h2>Company Profile</h2>
+                    <p>Post your jobs directly to JobPlanet in minutes. You'll get quality applicants sent directly to your inbox, no website required.</p>
+                    <p><a href="company_page.html" class="btn btn-theme btn-t-primary">Learn more about company pages</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>*@ <!-- end block promo -->
+</div>

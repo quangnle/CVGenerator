@@ -10,7 +10,7 @@ namespace CVGenerator.Controllers
     {
         // GET: Resume
         public ActionResult ViewProfile(string id)
-        {
+        {           
             return View();
         }
 

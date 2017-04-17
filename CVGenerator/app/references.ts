@@ -7,3 +7,4 @@
 /// <reference path="controllers/app.module.profile.ts" />
 
 /// <reference path="services/profileService.ts" />
+/// <reference path="services/templateService.ts" />

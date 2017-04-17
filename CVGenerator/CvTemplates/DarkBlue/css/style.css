@@ -1,0 +1,115 @@
+@charset "utf-8";
+@import url(../fonts/fonts.css);
+/***************************************************************
+	GENERAL
+****************************************************************/
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, pre,
+dd, dl, dt, a, cite, code, img, tt, legend, fieldset, label {margin:0; padding:0;}
+img, a img, form, fieldset {border:0;}
+* {outline:0; border:0; margin:0; padding:0;}
+body:before	{content:""; height:100%; float:left; width:0; margin-top:-32767px;}	/*Opera Fix*/
+body {-webkit-text-size-adjust:100%; font-family:"gothambook", Verdana, Geneva, sans-serif; color:#505050; font-size:13px; line-height:22px; background:url(../images/bg_2.jpg) repeat center top; padding:20px 0 0; margin:0 auto;}
+body, html {height:100%;}
+ol, ul, li {list-style-type:none; margin:0 0 5px; padding:0;}
+p {padding:0; margin:0 0 5px;}
+::-moz-selection {color:#FFF; background:#00a0dd;}
+::selection {color:#FFF; background:#00a0dd;}
+a {text-decoration:none; color:#7B90B5;}
+a:hover {text-decoration:underline;}
+a:active, a:focus {outline:0; border:0;}
+h1 {color:#7B90B5; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:35px; font-weight:normal;}
+h2 {color:#777; font-family:"gothamlight", Verdana, Geneva, sans-serif; font-size:16px; font-weight:normal; margin:0 0 25px;}
+h3 {color:#1B4491; font-family:"gothamlight", Verdana, Geneva, sans-serif; font-size:22px; font-weight:normal;}
+h4 {color:#272D36; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:18px; font-weight:normal; margin:0 0 5px;}
+	h4 span {float:right; font-size:11px; font-style:italic; color:#FFF; background:#7B90B5; padding:0 7px; border-radius:2px; -webkit-border-radius:2px; -moz-border-radius:2px;}
+h5 {color:#777; font-family:"gothamlight", Verdana, Geneva, sans-serif; font-size:13px; font-weight:normal; font-style:italic; margin:0 0 15px;}
+h6 {color:#7B90B5; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:13px; font-weight:normal; margin:0 0 15px;}
+	h6 a {text-decoration:underline;}
+	h6 a:hover {text-decoration:none;}
+hr {border-bottom:1px solid #e1e1e1; height:1; margin:25px 7px 25px 0;}
+label {}
+input[type="text"], textarea {border:1px solid #DBDEE2; color:#505050; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:13px; width:300px; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; padding:5px 10px; margin:0 0 10px;}
+input[type="radio"]::-moz-focus-inner {padding:0; margin:3px 0 0;}
+input[type="button"], input[type="submit"] {background:#30487C; color:#E3E4E8; border-radius:2px; -moz-border-radius:2px; -webkit-border-radius:2px; padding:5px 10px; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:13px;}
+input[type="button"]:hover, input[type="submit"]:hover {}
+.margin0 {margin:0;}
+.padding0 {padding:0;}
+.clearfixed {clear:both;}
+.pull-left {float:left;}
+.pull-right {float:right;}
+.img-left {margin:5px 10px 0 0;}
+.img-right {margin:5px 0 0 10px;}
+.text-right {text-align:right;}
+.text-center {text-align:center;}
+.text-justify {text-align:justify;}
+.col-30 {width:25%; margin:0 5% 0 0;}
+.col-70 {width:70%;}
+/***************************************************************************
+	STRUCTURE
+****************************************************************************/
+#wrapper {width:1200px; margin:0 auto; position:relative;}
+	.nav-floating {position:fixed; top:200px; width:155px;}
+		.nav-floating li {background:#30487c; /*background:#374c6f;*/ padding:5px 15px; text-align:right; border-top-left-radius:2px; -moz-border-top-left-radius:2px; -webkit-border-top-left-radius:2px; border-bottom-left-radius:2px; -moz-border-bottom-left-radius:2px; -webkit-border-bottom-left-radius:2px;}
+		.nav-floating li a {font-family:"gothambook", Verdana, Geneva, sans-serif; line-height:100%; color:#e3e4e8;}
+		.nav-floating li a:hover, 
+		.nav-floating li.current a {color:#FFF; text-decoration:none;}
+#wrap {width:890px; margin:0 auto 20px; padding:35px 0 0; z-index:100; position:relative; background:#FFF url(../images/bg_top.png) no-repeat 0 0; box-shadow:0px 0px 5px 0px #666; -webkit-box-shadow:0px 0px 5px 0px #666;
+-moz-box-shadow:0px 0px 5px 0px #666;}
+#header {border-bottom:1px solid #dbdee2; margin:0 0 30px; padding:0 35px;}
+	.personal-info {float:left; width:60%;}
+		.personal-photo {float:left; background:url(../images/bg_img.png) no-repeat 0 0; padding:10px 10px 26px 10px; margin:0 20px 0 0;}
+		.personal-name {margin:96px 0 35px;}
+	/*
+	.nav {float:right; padding:110px 0 0;}
+		.nav-social {margin:0 0 15px;}
+		.nav li {float:left; background:url(../images/bullet_slash.png) no-repeat 0 1px; padding:0 0 0 15px; margin:0 0 0 10px}
+		.nav li:first-child {background-image:none;}
+		.nav li a {color:#777; font-family:"gothamlight", Verdana, Geneva, sans-serif; font-size:16px;}
+		.nav li a:hover {color:#000;}
+		.nav li a.current {color:#1D487E;}
+	*/
+	.nav {float:right; margin:-20px 0 0;}
+		.nav-social {margin:175px 0 0;}
+			.nav-social a {margin:0 0 0 1px;}
+		.nav li {float:left; background:url(../images/bullet_slash.png) no-repeat 0 5px; padding:0 0 0 20px; margin:0 0 0 15px}
+		.nav li:first-child {background-image:none;}
+		.nav li a {color:#FFF; font-family:"gothamlight", Verdana, Geneva, sans-serif; font-size:14px;}
+		.nav li a:hover {color:#7B90B5; text-decoration:none;}
+		.nav li a.current {color:#7B90B5;}
+#container {padding:0 35px;}
+	.resume {}
+		.resume-section {border-bottom:1px solid #dbdee2; padding:0 0 15px; margin:0 0 20px;}
+		.resume-section:last-child {border:none;}
+		.resume-section-child {border-bottom:1px solid #dbdee2; padding:0 0 15px; margin:0 0 20px;}
+		.resume-section-child:last-child {border:none; padding:0; margin:0;}
+		.personal div {margin:0 0 7px; padding:0 0 0 22px;}
+		.personal-fullname {background:url(../images/icon/icon_p_name.png) no-repeat 0 3px;}
+		.personal-birthday {background:url(../images/icon/icon_p_birthday.png) no-repeat 0 4px;}
+		.personal-national {background:url(../images/icon/icon_p_national.png) no-repeat 0 2px;}
+		.personal-add {background:url(../images/icon/icon_p_add.png) no-repeat 0 3px;}
+		.personal-phone {background:url(../images/icon/icon_p_phone.png) no-repeat 0 4px;}
+		.personal-email {background:url(../images/icon/icon_p_mail.png) no-repeat 0 6px;}
+		.personal-web {background:url(../images/icon/icon_p_web.png) no-repeat 0 5px;}
+	.bullet-01 li {background:url(../images/bullet_disc_grey.png) no-repeat 0 9px; padding:0 0 0 15px;}
+		.bullet-01 li a {color:#7B90B5;}
+		.bullet-01 li a:hover {text-decoration:underline;}
+	.skill-name {float:left; width:28%; margin:0 2% 0 0; font-family:"gothambook", Verdana, Geneva, sans-serif; font-size:14px; color:#272D36;}
+	.skill-items {float:right; width:70%;}
+	.skill-items-detail {}
+		.skill-rate {float:left; margin:0 5% 0 0; width:20%; height:16px; display:block; text-indent:-9999px;}
+			.rate-0 {background:url(../images/rate/rate_dblue_0.png) no-repeat 0 5px;}
+			.rate-1 {background:url(../images/rate/rate_dblue_10.png) no-repeat 0 5px;}
+			.rate-2 {background:url(../images/rate/rate_dblue_20.png) no-repeat 0 5px;}
+			.rate-3 {background:url(../images/rate/rate_dblue_30.png) no-repeat 0 5px;}
+			.rate-4 {background:url(../images/rate/rate_dblue_40.png) no-repeat 0 5px;}
+			.rate-5 {background:url(../images/rate/rate_dblue_50.png) no-repeat 0 5px;}
+			.rate-6 {background:url(../images/rate/rate_dblue_60.png) no-repeat 0 5px;}
+			.rate-7 {background:url(../images/rate/rate_dblue_70.png) no-repeat 0 5px;}
+			.rate-8 {background:url(../images/rate/rate_dblue_80.png) no-repeat 0 5px;}
+			.rate-9 {background:url(../images/rate/rate_dblue_90.png) no-repeat 0 5px;}
+			.rate-10 {background:url(../images/rate/rate_dblue_100.png) no-repeat 0 5px;}
+		.skill-content {float:right; width:75%;}
+	.form-contact {margin:20px 0 15px;}
+#footer {background:#30487c; padding:10px 35px 5px;}
+	.copyright {color:#8b9dbe; font-size:12px;}
+	.btn-top {position:fixed; bottom:0; right:15px;}
