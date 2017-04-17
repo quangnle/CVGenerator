@@ -128,7 +128,7 @@ module CVGen.Controller {
                         profileService.SubmitEdus($scope.Educations)
                             .then((response) => {
                                 if (response.status == 200) {
-                                    logger.log("OK");
+                                    logger.log("Saved successfully.");
                                 }
                             });
                     };

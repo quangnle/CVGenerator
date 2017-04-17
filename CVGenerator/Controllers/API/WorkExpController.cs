@@ -13,13 +13,13 @@ namespace CVGenerator.Controllers.API
     {
         protected override IEnumerable<T> GetExistedItems<T>(List<T> lst)
         {
-            var existedWorkExp = lst.Where(s => (s as WorkExperience).IdProfile > 0);
+            var existedWorkExp = lst.Where(s => (s as WorkExperience).Id > 0);
             return existedWorkExp;
         }
 
         protected override IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
-            var newWorkExp = lst.Where(s => (s as WorkExperience).IdProfile == -1);
+            var newWorkExp = lst.Where(s => (s as WorkExperience).Id <= 0);
             return newWorkExp;
         }
 

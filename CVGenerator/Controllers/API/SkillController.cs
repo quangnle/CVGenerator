@@ -12,14 +12,14 @@ namespace CVGenerator.Controllers.API
     public class SkillController : BaseApiController
     {
         protected override IEnumerable<T> GetExistedItems<T>(List<T> lst)
-        {   
-            var existedSkills = lst.Where(s => (s as Skill).IdProfile > 0);
+        {
+            var existedSkills = lst.Where(s => (s as Skill).Id > 0);
             return existedSkills;
         }
 
         protected override IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
-            var newSkills = lst.Where(s => (s as Skill).IdProfile == -1);
+            var newSkills = lst.Where(s => (s as Skill).Id <= 0);
             return newSkills;
         }
 
@@ -32,7 +32,7 @@ namespace CVGenerator.Controllers.API
             var success = UpdateConvertibleModelList<Skill, TSkill>(skills);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
-            
+
         }
     }
 }

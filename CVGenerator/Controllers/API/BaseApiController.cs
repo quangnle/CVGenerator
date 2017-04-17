@@ -42,7 +42,7 @@ namespace CVGenerator.Controllers.API
                 }
 
                 // update existing skills
-                if (existedItems != null)
+                if (existedItems != null && existedItems.Any())
                 {
                     var currentItems = set.ToListAsync().Result;
                     foreach (var item in existedItems)
@@ -64,8 +64,10 @@ namespace CVGenerator.Controllers.API
                     }
                 }
 
+                context.SaveChanges();
+
                 return true;
             }
-        }       
+        }
     }
 }

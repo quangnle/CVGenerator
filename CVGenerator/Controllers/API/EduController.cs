@@ -13,13 +13,13 @@ namespace CVGenerator.Controllers.API
     {
         protected override IEnumerable<T> GetExistedItems<T>(List<T> lst)
         {
-            var existedEdu = lst.Where(s => (s as Education).IdProfile > 0);
+            var existedEdu = lst.Where(s => (s as Education).Id > 0);
             return existedEdu;
         }
 
         protected override IEnumerable<T> GetNewItems<T>(List<T> lst)
         {
-            var newEdu = lst.Where(s => (s as Education).IdProfile == -1);
+            var newEdu = lst.Where(s => (s as Education).Id <= 0);
             return newEdu;
         }
 
