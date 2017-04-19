@@ -11,7 +11,7 @@ module CVGen.Services {
         GetAll = () => {         
             return this.httpService({
                 method: 'GET',
-                url: "/api/Temp/GetAll",
+                url: "/api/Template/GetAll",
             });
         }
     }

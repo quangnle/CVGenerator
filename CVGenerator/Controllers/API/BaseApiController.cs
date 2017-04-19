@@ -4,6 +4,7 @@ using CVGenerator.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -52,6 +53,9 @@ namespace CVGenerator.Controllers.API
                             return false;
 
                         item.Update((K)entity);
+                        set.Attach(entity);
+                        DbEntityEntry entry = context.Entry(entity);
+                        entry.State = EntityState.Modified;
                     }
 
                     foreach (var entity in currentItems.ToList())
@@ -59,7 +63,9 @@ namespace CVGenerator.Controllers.API
                         var foundSkill = existedItems.FirstOrDefault(s => s.Id == (entity as IEntity).Id);
                         if (foundSkill == null)
                         {
-                            set.Remove(entity);
+                            set.Attach(entity);
+                            DbEntityEntry entry = context.Entry(entity);
+                            entry.State = EntityState.Deleted;
                         }
                     }
                 }
