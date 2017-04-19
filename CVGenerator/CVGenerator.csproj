@@ -423,6 +423,7 @@
     <TypeScriptCompile Include="app\controllers\app.module.profile.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\references.ts" />
+    <TypeScriptCompile Include="app\services\skillService.ts" />
     <TypeScriptCompile Include="app\services\templateService.ts" />
     <TypeScriptCompile Include="app\services\profileService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
