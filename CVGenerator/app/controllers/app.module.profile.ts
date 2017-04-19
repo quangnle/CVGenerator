@@ -23,6 +23,8 @@ module CVGen.Controller {
 
                         $scope.Profile = {};
                         $scope.Educations = [];
+                        $scope.Educations = [];
+                        $scope.WorkExps = [];
                     }
 
                     $scope.SubmitPersonalInfo = () => {
@@ -131,6 +133,24 @@ module CVGen.Controller {
                                     logger.log("Saved successfully.");
                                 }
                             });
+                    };
+
+                    //work experience
+                    $scope.RemoveWorkExp = (index) => {
+                        $scope.WorkExps.splice(index, 1);
+                    };
+
+                    $scope.AddWorkExp = () => {
+                        $scope.WorkExps.push({
+                            Company: '',
+                            FromMonth: '',
+                            FromYear: '',
+                            ToMonth: '',
+                            ToYear: '',
+                            Position: '',
+                            Description: '',
+                            IdProfile: $scope.ProfileId
+                        });
                     };
                 });
         }
