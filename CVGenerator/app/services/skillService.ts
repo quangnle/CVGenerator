@@ -1,17 +1,18 @@
 ﻿/// <reference path="../references.ts" />
 
 module CVGen.Services {
-    export class TemplateService {
+    export class SkillService {
         httpService: ng.IHttpService
         static $inject = ["$http"];
         constructor($http: ng.IHttpService) {
             this.httpService = $http;
         }
-              
-        GetAll = () => {         
+
+        SubmitSkills = (model) => {
             return this.httpService({
-                method: 'GET',
-                url: "/api/Template/GetAll",
+                data: model,
+                method: 'POST',
+                url: "/api/Skill/SubmitSkills",
             });
         }
     }

@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace CVGenerator.Controllers.API
 {
-    public class TempController : BaseApiController
+    public class TemplateController : BaseApiController
     {        
         [HttpGet]
         public List<TTemplate> GetAll()
