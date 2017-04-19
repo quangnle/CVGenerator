@@ -3,11 +3,11 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope', 'logger', 'profileService'];
+        public static $inject = ['$scope', 'logger', 'profileService', 'skillService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
-                function ($scope, logger, profileService: Services.ProfileService) {
+                function ($scope, logger, profileService: Services.ProfileService, skillService: Services.SkillService) {
 
                     $scope.InitCreateProfile = () => {
                         $scope.ProfileId = null;
@@ -23,6 +23,7 @@ module CVGen.Controller {
 
                         $scope.Profile = {};
                         $scope.Educations = [];
+                        $scope.Skills = [];
                     }
 
                     $scope.SubmitPersonalInfo = () => {
@@ -65,6 +66,9 @@ module CVGen.Controller {
                             case 'education': {
                                 $scope.SubmitEdus();
                                 break;
+                            }
+                            case 'skill': {
+                                $scope.SubmitSkills();
                             }
                         }
                     }
@@ -110,6 +114,7 @@ module CVGen.Controller {
                         }
                     };
 
+                    // education
                     $scope.AddEducation = () => {
                         $scope.Educations.push({
                             University: '',
@@ -132,6 +137,29 @@ module CVGen.Controller {
                                 }
                             });
                     };
+
+                    // skills
+                    $scope.AddSkill = () => {
+                        $scope.Skills.push({
+                            Name: '',
+                            Score: 1,                           
+                            IdProfile: $scope.ProfileId
+                        });
+                    };
+
+                    $scope.RemoveSkill = (index) => {
+                        $scope.Skills.splice(index, 1);
+                    };
+
+                    $scope.SubmitSkills = () => {
+                        skillService.SubmitSkills($scope.Skills)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    logger.log("Saved successfully.");
+                                }
+                            });
+                    };
+
                 });
         }
     }
