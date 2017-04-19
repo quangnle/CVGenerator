@@ -14,6 +14,18 @@ namespace CVGenerator
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "UserResume",
+               url: "MyCv/{idTemplate}/{idProfile}",
+               defaults: new
+               {
+                   controller = "Resume",
+                   action = "ViewUserProfile",
+                   idTemplate = "",
+                   idProfile = ""
+               }
+           );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

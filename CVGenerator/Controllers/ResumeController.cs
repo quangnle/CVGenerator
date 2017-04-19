@@ -9,8 +9,13 @@ namespace CVGenerator.Controllers
     public class ResumeController : Controller
     {
         // GET: Resume
+        public ActionResult ViewUserProfile(string idTemplate, string idProfile)
+        {
+            return View();
+        }
+
         public ActionResult ViewProfile(string id)
-        {           
+        {
             return View();
         }
 
