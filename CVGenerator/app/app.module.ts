@@ -35,6 +35,7 @@
     CVGen.Controller.Home.Configure(cvGeneratorApp);
     CVGen.Controller.Resume.Configure(cvGeneratorApp);
     CVGen.Controller.Profile.Configure(cvGeneratorApp);
+    CVGen.Controller.UserResume.Configure(cvGeneratorApp);
 
 
     cvGeneratorApp.factory("logger", [

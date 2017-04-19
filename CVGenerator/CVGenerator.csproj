@@ -408,6 +408,7 @@
     <Content Include="CvTemplates\DarkBlue\images\.DS_Store" />
     <Content Include="CvTemplates\DarkBlue\images\icon\.DS_Store" />
     <Content Include="CvTemplates\DarkBlue\images\rate\.DS_Store" />
+    <Content Include="Views\Resume\ViewUserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -422,6 +423,7 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.profile.ts" />
+    <TypeScriptCompile Include="app\controllers\app.module.userResume.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\references.ts" />
     <TypeScriptCompile Include="app\services\skillService.ts" />
