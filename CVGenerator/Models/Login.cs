@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CVGenerator.Models
 {
@@ -13,8 +9,9 @@ namespace CVGenerator.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please enter Password")]
-        [StringLength(6, ErrorMessage = "Password must be more than 6 charactes")]
+        [MinLength(6, ErrorMessage = "Password must be more than 6 charactes")]
         public string Password { get; set; }
+
         public bool RememberMe { get; set; }
     }
 }
