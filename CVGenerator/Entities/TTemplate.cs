@@ -18,6 +18,6 @@ namespace CVGenerator.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public string Thumbnail { get; set; }
-        public string TeamplateSrc { get; set; }
+        public string TemplateSrc { get; set; }
     }
 }

@@ -7,14 +7,17 @@ module CVGen.Controller {
 
         static Configure(module: angular.IModule) {
             module.controller('UserResumeCtrl', function ($scope, templateService: Services.TemplateService) {
-                $scope.InitViewProfile = (data) => {
-                    templateService.GetAll()
-                        .then((response) => {
-                            if (response.status == 200) {
-                                $scope.Templates = response.data;
-                            }
-                        });
+
+                $scope.InitViewUserProfile = (data) => {
+                    $scope.TemplateSrc = data.Template.TemplateSrc;
+                    $scope.TemplateSrcIndex = data.Template.TemplateSrc + 'index.html';
+                    $scope.PersonalInformation = data.PersonalInformation;
+                    $scope.Educations = data.Educations;
+                    $scope.WorkExps = data.WorkExps;
+                    $scope.Skills = data.Skills;
+                    $scope.References = data.References;
                 }
+
             })
         }
     }

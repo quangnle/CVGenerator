@@ -35,7 +35,7 @@
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" />
           <Property Name="Email" Type="nvarchar" MaxLength="30" />
           <Property Name="Website" Type="nvarchar" MaxLength="50" />
-          <Property Name="AboutMe" Type="nvarchar" MaxLength="120" />
+          <Property Name="AboutMe" Type="nvarchar" MaxLength="500" />
           <Property Name="Photo" Type="varchar" MaxLength="50" />
           <Property Name="IdUser" Type="int" />
         </EntityType>
@@ -79,7 +79,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="Thumbnail" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="TeamplateSrc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TemplateSrc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TUser">
           <Key>
@@ -148,7 +148,7 @@
           <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AboutMe" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="AboutMe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="IdProfile" Type="Guid" Nullable="false" />
@@ -193,7 +193,7 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Thumbnail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TeamplateSrc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TemplateSrc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TUser">
           <Key>
@@ -309,11 +309,11 @@
           <EntitySetMapping Name="TTemplates">
             <EntityTypeMapping TypeName="UAB.DatabaseModel.TTemplate">
               <MappingFragment StoreEntitySet="TTemplate">
+                <ScalarProperty Name="TemplateSrc" ColumnName="TemplateSrc" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="TeamplateSrc" ColumnName="TeamplateSrc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

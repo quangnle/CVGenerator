@@ -25,12 +25,15 @@ namespace CVGenerator.Models
             entity.FromYear = FromYear;
             entity.ToYear = ToYear;
             entity.Degree = Degree;
+           
         }
 
         public TEducation GetEntity()
         {
             var entity = new TEducation();
             Update(entity);
+            entity.IdProfile = IdProfile;
+
             return entity;
         }
     }
