@@ -2,37 +2,12 @@
     Layout = null;
 }
 
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<div data-ng-app="cvGeneratorApp" ng-controller="UserResumeCtrl"
+     ng-init="InitViewUserProfile(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">
 
-    <title>Jobplanet - Responsive Job Board HTML Template </title>
-    <link rel="apple-touch-icon" href="~/Content/Main/images/apple-touch-icon.png">
-    <link href="~/dist/css.style.min.css" rel="stylesheet">
-    <link href="~/Content/Main/css/theme.css" rel="stylesheet">
-    <link href="~/Content/Main/css/theme-custom.css" rel="stylesheet">
 
-</head>
-<body data-ng-app="cvGeneratorApp" ng-controller="UserResumeCtrl">
-    <div class="wrapper">
-        @Html.Partial("_Header")
+    <ng-include ng-model="TemplateSrcIndex"  src="TemplateSrcIndex"></ng-include>
 
-        @RenderBody()
-
-        <section ng-include="'/app/views/footer.html'"></section>
-    </div>
-
-    <script src="~/dist/jquery.bundle.min.js"></script>
-    <script src="~/dist/app-build.js"></script>
-    <script src="~/Content/Main/js/theme.js"></script>
-</body>
-</html>*@
-
-<div data-ng-app="cvGeneratorApp" ng-init="InitViewUserProfile()">
-    <section ng-include="'/CvTemplates/DarkBlue/index.html'"></section>
     <script src="~/dist/jquery.bundle.min.js"></script>
     <script src="~/dist/app-build.js"></script>
 </div>

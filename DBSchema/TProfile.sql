@@ -14,7 +14,7 @@
     [PhoneNo] NVARCHAR(15) NULL, 
     [Email] NVARCHAR(30) NULL, 
     [Website] NVARCHAR(50) NULL, 
-    [AboutMe] NVARCHAR(120) NULL, 
+    [AboutMe] NVARCHAR(500) NULL, 
     [Photo] VARCHAR(50) NULL, 
     [IdUser] INT NULL
 )
