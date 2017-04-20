@@ -37,10 +37,9 @@ namespace CVGenerator.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Login failed. Check your login credential.");
+                    ModelState.AddModelError("Email", "Login failed. Email or Username is not existed");
                 }
             }
-            //}
 
             return View("login");
         }
@@ -76,7 +75,7 @@ namespace CVGenerator.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Your email has been existed in the system.");
+                    ModelState.AddModelError("Email", "Your email has been existed in the system.");
                     return View(model);
                 }
             }
