@@ -30,5 +30,6 @@ namespace CVGenerator.Entities
         public string AboutMe { get; set; }
         public string Photo { get; set; }
         public Nullable<int> IdUser { get; set; }
+        public System.Guid IdProfile { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[TProfile]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	    [IdProfile] UNIQUEIDENTIFIER NOT NULL    ,
     [FirstName] NVARCHAR(10) NOT NULL, 
     [LastName] NVARCHAR(30) NOT NULL, 
 	[Age] INT NOT NULL,
@@ -15,5 +16,5 @@
     [Website] NVARCHAR(50) NULL, 
     [AboutMe] NVARCHAR(120) NULL, 
     [Photo] VARCHAR(50) NULL, 
-    [IdUser] INT NULL    
+    [IdUser] INT NULL
 )
