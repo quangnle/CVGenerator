@@ -23,8 +23,10 @@ namespace CVGenerator.Controllers
         [HttpPost]
         public ActionResult Login(Login model)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             using (var context = new Entities.GvGenEntities())
             {
                 var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
@@ -35,10 +37,9 @@ namespace CVGenerator.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Login failed. Check your login credential.");
+                    ModelState.AddModelError("Email", "Login failed. Email or Username is not existed");
                 }
             }
-            //}
 
             return View("login");
         }
@@ -54,11 +55,10 @@ namespace CVGenerator.Controllers
         [HttpPost]
         public ActionResult Register(Register model)
         {
-            if (model.Password != model.PasswordConfirmation)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Invalid password confirmation.");
+                return View(model);
             }
-
             using (var context = new GvGenEntities())
             {
                 var mailExists = context.TUsers.FirstOrDefault(m => m.Email == model.Email);
@@ -75,10 +75,10 @@ namespace CVGenerator.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Your email has been existed in the system.");
+                    ModelState.AddModelError("Email", "Your email has been existed in the system.");
+                    return View(model);
                 }
             }
-            return View("login");
         }
 
         [AllowAnonymous]

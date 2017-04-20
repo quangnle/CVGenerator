@@ -56,13 +56,14 @@ namespace CVGenerator.Models
                 entity.ToYear = int.Parse(ToTime.Split('/')[1]);
             }
 
-            entity.Description = Description;
+            entity.Description = Description;        
         }
 
         public TWorkExperience GetEntity()
         {
             TWorkExperience entity = new TWorkExperience();
             Update(entity);
+            entity.IdProfile = IdProfile;
             return entity;
         }
     }

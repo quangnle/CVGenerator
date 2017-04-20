@@ -30,11 +30,13 @@
     }
 
     cvGeneratorApp.service("profileService", CVGen.Services.ProfileService);
+    cvGeneratorApp.service("skillService", CVGen.Services.SkillService);
     cvGeneratorApp.service("templateService", CVGen.Services.TemplateService);
 
     CVGen.Controller.Home.Configure(cvGeneratorApp);
     CVGen.Controller.Resume.Configure(cvGeneratorApp);
     CVGen.Controller.Profile.Configure(cvGeneratorApp);
+    CVGen.Controller.UserResume.Configure(cvGeneratorApp);
 
 
     cvGeneratorApp.factory("logger", [

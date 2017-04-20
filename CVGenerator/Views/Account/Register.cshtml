@@ -1,4 +1,4 @@
-﻿
+﻿@model CVGenerator.Models.Register
 @{
     ViewBag.Title = "Register";
 }
@@ -23,18 +23,23 @@
                                 {
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" name="Email"
-                                               placeholder="Your Email">
+                                        @Html.TextBoxFor(m => m.Email, new { @placeholder = "Your Email", @class = "form-control" })
+                                        @*<input type="email" class="form-control" name="Email"
+                                               placeholder="Your Email">*@
+                                        <div class="text-danger">@Html.ValidationMessageFor(m => m.Email)</div>
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
                                         <input type="password" class="form-control" name="Password"
                                                placeholder="Your Password">
+                                        <div class="text-danger">@Html.ValidationMessageFor(m => m.Password)</div>
                                     </div>
                                     <div class="form-group">
                                         <label>Re-type Password</label>
                                         <input type="password" class="form-control" name="PasswordConfirmation"
                                                placeholder="Re-type Your Password">
+                                        <div class="text-danger">@Html.ValidationMessageFor(m => m.PasswordConfirmation)</div>
+
                                     </div>
                                     <div class="white-space-10"></div>
                                     <div class="form-group no-margin">

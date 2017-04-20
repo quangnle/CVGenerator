@@ -73,7 +73,7 @@ namespace CVGenerator.Models
             _entity.Website = Website;
             _entity.YearOfExp = YearsOfExp;
             _entity.Photo = PhotoPath;
-
+            _entity.IdProfile = Guid.NewGuid();
             return _entity;
         }
 

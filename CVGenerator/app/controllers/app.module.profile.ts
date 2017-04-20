@@ -24,6 +24,8 @@ module CVGen.Controller {
                         $scope.Profile = {};
                         $scope.Educations = [];
                         $scope.Skills = [];
+                        $scope.Educations = [];
+                        $scope.WorkExps = [];
                     }
 
                     $scope.SubmitPersonalInfo = () => {
@@ -32,7 +34,8 @@ module CVGen.Controller {
                             .then((response) => {
                                 if (response.status == 200) {
                                     logger.log("Saved successfully.");
-                                    $scope.ProfileId = response.data;
+                                    $scope.ProfileId = (<any>response.data).Id;
+                                    $scope.ProfileGuidId = (<any>response.data).GuidId;
                                 }
                             });
                     };
@@ -142,7 +145,7 @@ module CVGen.Controller {
                     $scope.AddSkill = () => {
                         $scope.Skills.push({
                             Name: '',
-                            Score: 1,                           
+                            Score: 1,
                             IdProfile: $scope.ProfileId
                         });
                     };
@@ -160,6 +163,24 @@ module CVGen.Controller {
                             });
                     };
 
+
+                    //work experience
+                    $scope.RemoveWorkExp = (index) => {
+                        $scope.WorkExps.splice(index, 1);
+                    };
+
+                    $scope.AddWorkExp = () => {
+                        $scope.WorkExps.push({
+                            Company: '',
+                            FromMonth: '',
+                            FromYear: '',
+                            ToMonth: '',
+                            ToYear: '',
+                            Position: '',
+                            Description: '',
+                            IdProfile: $scope.ProfileId
+                        });
+                    };
                 });
         }
     }

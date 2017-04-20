@@ -4,7 +4,9 @@
 
 /// <reference path="controllers/app.module.home.ts" />
 /// <reference path="controllers/app.module.resume.ts" />
+/// <reference path="controllers/app.module.userResume.ts" />
 /// <reference path="controllers/app.module.profile.ts" />
 
 /// <reference path="services/profileService.ts" />
 /// <reference path="services/templateService.ts" />
+/// <reference path="services/skillService.ts" />

@@ -30,7 +30,7 @@ namespace CVGenerator.Models
         {
             entity.Name = Name;
             entity.Score = Score;
-            entity.Category = Category;
+            entity.Category = Category;         
         }
 
         public TSkill GetEntity()
@@ -41,9 +41,9 @@ namespace CVGenerator.Models
                 _entity.IdProfile = IdProfile;
                 _entity.Category = Category;
                 _entity.Name = Name;
-                _entity.Score = Score;
+                _entity.Score = Score;                
             }
-
+            _entity.IdProfile = IdProfile;
             return _entity;
         }
     }

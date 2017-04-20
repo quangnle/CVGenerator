@@ -22,6 +22,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProfile" Type="uniqueidentifier" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
@@ -34,7 +35,7 @@
           <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" />
           <Property Name="Email" Type="nvarchar" MaxLength="30" />
           <Property Name="Website" Type="nvarchar" MaxLength="50" />
-          <Property Name="AboutMe" Type="nvarchar" MaxLength="120" />
+          <Property Name="AboutMe" Type="nvarchar" MaxLength="500" />
           <Property Name="Photo" Type="varchar" MaxLength="50" />
           <Property Name="IdUser" Type="int" />
         </EntityType>
@@ -78,14 +79,14 @@
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="Thumbnail" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="TeamplateSrc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TemplateSrc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Role" Type="int" Nullable="false" />
@@ -147,9 +148,10 @@
           <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AboutMe" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="AboutMe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdUser" Type="Int32" />
+          <Property Name="IdProfile" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="TReference">
           <Key>
@@ -191,14 +193,14 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Thumbnail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TeamplateSrc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TemplateSrc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
@@ -249,6 +251,7 @@
           <EntitySetMapping Name="TProfiles">
             <EntityTypeMapping TypeName="UAB.DatabaseModel.TProfile">
               <MappingFragment StoreEntitySet="TProfile">
+                <ScalarProperty Name="IdProfile" ColumnName="IdProfile" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -306,11 +309,11 @@
           <EntitySetMapping Name="TTemplates">
             <EntityTypeMapping TypeName="UAB.DatabaseModel.TTemplate">
               <MappingFragment StoreEntitySet="TTemplate">
+                <ScalarProperty Name="TemplateSrc" ColumnName="TemplateSrc" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
-                <ScalarProperty Name="TeamplateSrc" ColumnName="TeamplateSrc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
