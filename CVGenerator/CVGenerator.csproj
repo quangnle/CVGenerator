@@ -276,6 +276,7 @@
     <Compile Include="Controllers\API\ProfileController.cs" />
     <Compile Include="Controllers\API\SkillController.cs" />
     <Compile Include="Controllers\API\WorkExpController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Entities\CvGenModel.Context.cs">
@@ -409,6 +410,7 @@
     <Content Include="CvTemplates\DarkBlue\images\icon\.DS_Store" />
     <Content Include="CvTemplates\DarkBlue\images\rate\.DS_Store" />
     <Content Include="Views\Resume\ViewUserProfile.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

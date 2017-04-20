@@ -34,7 +34,8 @@ module CVGen.Controller {
                             .then((response) => {
                                 if (response.status == 200) {
                                     logger.log("Saved successfully.");
-                                    $scope.ProfileId = response.data;
+                                    $scope.ProfileId = (<any>response.data).Id;
+                                    $scope.ProfileGuidId = (<any>response.data).GuidId;
                                 }
                             });
                     };
@@ -144,7 +145,7 @@ module CVGen.Controller {
                     $scope.AddSkill = () => {
                         $scope.Skills.push({
                             Name: '',
-                            Score: 1,                           
+                            Score: 1,
                             IdProfile: $scope.ProfileId
                         });
                     };

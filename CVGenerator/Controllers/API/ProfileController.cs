@@ -40,10 +40,9 @@ namespace CVGenerator.Controllers.API
                 db.TProfiles.Add(entity);
                 db.SaveChanges();
             }
-            var message = Request.CreateResponse<int>(HttpStatusCode.OK, entity.Id);
+            var dataReturn = new { Id = entity.Id, GuidId = entity.IdProfile };
+            var message = Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             return message;
-
-            //return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         [HttpGet]

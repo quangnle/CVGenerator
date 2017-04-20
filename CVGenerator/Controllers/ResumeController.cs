@@ -44,6 +44,7 @@ namespace CVGenerator.Controllers
 
         public ActionResult ViewProfile(string id)
         {
+            ViewBag.ProfileGuidId = id;
             return View();
         }
 
