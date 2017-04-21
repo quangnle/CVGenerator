@@ -10,3 +10,4 @@
 /// <reference path="services/profileService.ts" />
 /// <reference path="services/templateService.ts" />
 /// <reference path="services/skillService.ts" />
+/// <reference path="services/workExpService.ts" />

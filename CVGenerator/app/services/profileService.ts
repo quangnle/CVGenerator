@@ -25,20 +25,20 @@ module CVGen.Services {
             });
         }
 
-
-
-
-
         SubmitPersonalInfo = (model) => {
             return this.httpService({
                 data: model,
                 method: 'POST',
                 url: "/api/Profile/SubmitPersonalInfo",
             });
-        }    
+        }
 
-        SubmitEdus = (model) => {
+
+
+        SubmitEdus = (profileId, model) => {
+            var params = { profileId: profileId };
             return this.httpService({
+                params: params,
                 data: model,
                 method: 'POST',
                 url: "/api/Edu/SubmitEdus",

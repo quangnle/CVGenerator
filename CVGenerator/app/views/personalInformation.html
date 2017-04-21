@@ -13,16 +13,16 @@
     <div class="form-group">
         <div class="row clearfix">
             <div class="col-xs-3">
-                <input type="text" class="form-control " placeholder="Age">
+                <input type="text" class="form-control " placeholder="Age" ng-model="Profile.Age" valid-number>
             </div>
             <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Male</option>
-                    <option>Female</option>
+                <select class="form-control" ng-model="Profile.Gender" ng-init="Profile.Gender= Profile.Gender==null?'Male':Profile.Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
             </div>
             <div class="col-xs-3">
-                <input type="text" class="form-control " placeholder="Years of experience" ng-model="Profile.YearsOfExp">
+                <input type="text" class="form-control " placeholder="Years of experience" ng-model="Profile.YearOfExp" valid-number>
             </div>
             <div class="col-xs-3">
                 <input type="text" class="form-control " placeholder="Nationality" ng-model="Profile.Nationality">
@@ -33,14 +33,14 @@
         <label>Occupation</label>
         <div class="row clearfix">
             <div class="col-xs-6">
-                <input type="text" class="form-control " placeholder="Programmer, data analyst ...">
+                <input type="text" class="form-control " placeholder="Programmer, data analyst ..." ng-model="Profile.Occupation">
             </div>
             <div class="col-xs-6">
-                <select class="form-control">
-                    <option>Degree</option>
-                    <option>Bachelor</option>
-                    <option>Master</option>
-                    <option>Phd</option>
+                <select ng-model="Profile.Degree" class="form-control" ng-init="Profile.Degree= Profile.Degree==null?'-1':Profile.Degree">
+                    <option value="-1">Degree</option>
+                    <option value="Bachelor">Bachelor</option>
+                    <option value="Master">Master</option>
+                    <option value="Phd">Phd</option>
                 </select>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <label>Contact</label>
         <div class="row clearfix">
             <div class="col-xs-6">
-                <input type="text" class="form-control " placeholder="Phone" ng-model="Profile.PhoneNumber">
+                <input type="text" class="form-control " placeholder="Phone" ng-model="Profile.PhoneNo">
             </div>
             <div class="col-xs-6">
                 <input type="text" class="form-control " placeholder="Email" ng-model="Profile.Email">
@@ -62,7 +62,7 @@
         <label>Address</label>
         <div class="row clearfix">
             <div class="col-xs-12">
-                <input type="text" class="form-control " placeholder="Enter you address">
+                <input type="text" class="form-control " placeholder="Enter you address" ng-model="Profile.Address">
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <label>Website</label>
         <div class="row clearfix">
             <div class="col-xs-12">
-                <input type="text" class="form-control " placeholder="website">
+                <input type="text" class="form-control " placeholder="website" ng-model="Profile.Website">
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
     <div class="form-group">
         <label>About Me</label>
         <div class="color-white-mute"><small>Describe yourself about work experience, skills, or education...</small></div>
-        <textarea class="form-control" rows="6" placeholder="Enter your introduction"></textarea>
+        <textarea class="form-control" rows="6" placeholder="Enter your introduction" ng-model="Profile.AboutMe"></textarea>
     </div>
 
     <!--<div class="form-group">
@@ -117,7 +117,6 @@
         </div>
         <button class="btn btn-t-primary btn-theme" ng-click="AddEducation()">Add Education</button>
     </div>-->
-
     <!--<div class="form-group ">
         <button class="btn btn-t-primary btn-theme" ng-click="GotoEducation()">Go to Education</button>
         <button class="btn btn-t-primary btn-theme" ng-click="GotoSkill()">Go to Skill</button>

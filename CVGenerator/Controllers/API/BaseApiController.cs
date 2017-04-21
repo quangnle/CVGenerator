@@ -24,8 +24,13 @@ namespace CVGenerator.Controllers.API
         {
             return lst;
         }
+             
+        protected virtual IQueryable<IEntity> GetListDb(int parentId, DbSet dbSet)
+        {
+            return dbSet.Cast<IEntity>().AsQueryable();
+        }
 
-        protected bool UpdateConvertibleModelList<T, K>(List<T> lst) where T : IConvertibleModel<K> where K : IEntity
+        protected bool UpdateConvertibleModelList<T, K>(int parentId, List<T> lst) where T : IConvertibleModel<K> where K : IEntity
         {
             var newItems = GetNewItems(lst);
             var existedItems = GetExistedItems(lst);
@@ -45,7 +50,8 @@ namespace CVGenerator.Controllers.API
                 // update existing skills
                 if (existedItems != null && existedItems.Any())
                 {
-                    var currentItems = set.ToListAsync().Result;
+                    var currentItems = GetListDb(parentId, set).ToList();
+                    //var currentItems = set.ToListAsync().Result;
                     foreach (var item in existedItems)
                     {
                         var entity = currentItems.FirstOrDefault(s => (s as IEntity).Id == item.Id);

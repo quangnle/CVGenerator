@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 
 namespace CVGenerator.Controllers.API
 {
@@ -24,18 +25,17 @@ namespace CVGenerator.Controllers.API
         }
 
         [HttpPost]
-        public HttpResponseMessage SubmitEdus([FromBody]List<Education> edus)
+        public HttpResponseMessage SubmitEdus(int profileId, [FromBody]List<Education> edus)
         {
             if (edus == null || edus.Count == 0)
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
 
-            var success = UpdateConvertibleModelList<Education, TEducation>(edus);
+            var success = UpdateConvertibleModelList<Education, TEducation>(profileId, edus);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         [HttpGet]
-        //[Route("api/Profile/GetProfile")]
         public List<TEducation> GetEdus(int idProfile)
         {
             using (var db = new GvGenEntities())
@@ -43,6 +43,11 @@ namespace CVGenerator.Controllers.API
                 var lst = db.TEducations.Where(e => e.IdProfile == idProfile).ToList();
                 return lst;
             }
+        }
+
+        protected override IQueryable<IEntity> GetListDb(int parentId, DbSet dbSet)
+        {
+            return dbSet.Cast<TEducation>().Where(e => e.IdProfile == parentId);
         }
     }
 }

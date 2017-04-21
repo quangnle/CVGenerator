@@ -1,4 +1,5 @@
 ﻿using CVGenerator.Entities;
+using Omu.ValueInjecter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,11 @@ namespace CVGenerator.Models
 
         public void Update(TEducation entity)
         {
-            entity.University = University;
-            entity.FromYear = FromYear;
-            entity.ToYear = ToYear;
-            entity.Degree = Degree;
-           
+            //entity.University = University;
+            //entity.FromYear = FromYear;
+            //entity.ToYear = ToYear;
+            //entity.Degree = Degree;
+            entity.InjectFrom(this);
         }
 
         public TEducation GetEntity()

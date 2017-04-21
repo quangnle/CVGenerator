@@ -2,6 +2,7 @@
 using CVGenerator.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -37,10 +38,19 @@ namespace CVGenerator.Controllers.API
             var entity = profile.GetNew();
             using (var db = new GvGenEntities())
             {
-                db.TProfiles.Add(entity);
+                if (entity.Id > 0)
+                {
+                    var entityEntry = db.Entry<TProfile>(entity);
+                    entityEntry.State = EntityState.Modified;
+                }
+                else
+                {
+                    db.TProfiles.Add(entity);
+                }
+
                 db.SaveChanges();
             }
-            var dataReturn = new { Id = entity.Id, GuidId = entity.IdProfile };       
+            var dataReturn = new { Id = entity.Id, GuidId = entity.IdProfile };
             var message = Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             return message;
         }
@@ -55,20 +65,21 @@ namespace CVGenerator.Controllers.API
                 {
                     throw new Exception("Invalid Profile ID.");
                 }
-                
+
                 var educations = db.TEducations.Where(ed => ed.IdProfile == profile.Id).ToList();
                 var workExps = db.TWorkExperiences.Where(w => w.IdProfile == profile.Id).ToList();
                 var skills = db.TSkills.Where(s => s.IdProfile == profile.Id).ToList();
                 var references = db.TReferences.Where(r => r.IdProfile == profile.Id).ToList();
 
-                var dataReturn = new {
+                var dataReturn = new
+                {
                     PersonalInformation = profile,
-                    Educations= educations,
+                    Educations = educations,
                     WorkExps = workExps,
                     Skills = skills,
                     References = references,
                 };
-               
+
                 return Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             }
         }
