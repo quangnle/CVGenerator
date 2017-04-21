@@ -16,21 +16,26 @@ module CVGen.Services {
             });
         }
 
+        GetProfile = (idProfile) => {
+            var params = { idProfile: idProfile };
+            return this.httpService({
+                params: params,
+                method: 'GET',
+                url: "/api/Profile/GetUserProfile",
+            });
+        }
+
+
+
+
+
         SubmitPersonalInfo = (model) => {
             return this.httpService({
                 data: model,
                 method: 'POST',
                 url: "/api/Profile/SubmitPersonalInfo",
             });
-        }
-
-        SubmitSkills = (model) => {
-            return this.httpService({
-                data: model,
-                method: 'POST',
-                url: "/api/Skill/SubmitSkills",
-            });
-        }
+        }    
 
         SubmitEdus = (model) => {
             return this.httpService({

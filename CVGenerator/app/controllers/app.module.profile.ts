@@ -3,15 +3,13 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope', 'logger', 'profileService', 'skillService'];
+        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
-                function ($scope, logger, profileService: Services.ProfileService, skillService: Services.SkillService) {
+                function ($scope, $location, logger, profileService: Services.ProfileService, skillService: Services.SkillService) {
 
                     $scope.InitCreateProfile = () => {
-                        $scope.ProfileId = null;
-
                         $scope.steps = [
                             'personalInformation',
                             'education',
@@ -21,11 +19,32 @@ module CVGen.Controller {
                         ];
                         $scope.step = $scope.steps[0];
 
-                        $scope.Profile = {};
-                        $scope.Educations = [];
-                        $scope.Skills = [];
-                        $scope.Educations = [];
-                        $scope.WorkExps = [];
+                        var tokens = $location.$$path.split("/");
+                        var id = tokens[3];
+                        if (id == null) {
+                            $scope.ProfileId = null;
+                            $scope.Profile = {};
+                            $scope.Educations = [];
+                            $scope.Skills = [];
+                            $scope.References = [];
+                            $scope.WorkExps = [];
+                        }
+                        else {
+                            profileService.GetProfile(id)
+                                .then((response) => {
+                                    if (response.status == 200) {
+                                        var res = <any>response.data;
+                                        $scope.ProfileId = res.PersonalInformation.Id;
+
+                                        $scope.ProfileGuidId = res.PersonalInformation.IdProfile;
+                                        $scope.Profile = res.PersonalInformation;
+                                        $scope.Educations = res.Educations;
+                                        $scope.Skills = res.Skills;
+                                        $scope.WorkExps = res.WorkExps;
+                                        $scope.References = res.References;
+                                    }
+                                });
+                        }
                     }
 
                     $scope.SubmitPersonalInfo = () => {
@@ -35,7 +54,9 @@ module CVGen.Controller {
                                 if (response.status == 200) {
                                     logger.log("Saved successfully.");
                                     $scope.ProfileId = (<any>response.data).Id;
+
                                     $scope.ProfileGuidId = (<any>response.data).GuidId;
+                                    $location.path($location.$$path + $scope.ProfileGuidId);
                                 }
                             });
                     };

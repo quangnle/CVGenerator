@@ -29,6 +29,14 @@
         }
     }
 
+    cvGeneratorApp.config(function ($locationProvider) {
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+        //$locationProvider.hashPrefix("");
+    });
+
     cvGeneratorApp.service("profileService", CVGen.Services.ProfileService);
     cvGeneratorApp.service("skillService", CVGen.Services.SkillService);
     cvGeneratorApp.service("templateService", CVGen.Services.TemplateService);

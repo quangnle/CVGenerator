@@ -40,31 +40,58 @@ namespace CVGenerator.Controllers.API
                 db.TProfiles.Add(entity);
                 db.SaveChanges();
             }
-            var dataReturn = new { Id = entity.Id, GuidId = entity.IdProfile };
+            var dataReturn = new { Id = entity.Id, GuidId = entity.IdProfile };       
             var message = Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             return message;
         }
 
         [HttpGet]
-        //[Route("api/Profile/GetProfile")]
-        public TProfile GetProfile(int id)
+        public HttpResponseMessage GetUserProfile(string idProfile)
         {
             using (var db = new GvGenEntities())
             {
-                var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
+                var profile = db.TProfiles.FirstOrDefault(e => e.IdProfile == new Guid(idProfile));
+                if (profile == null)
+                {
+                    throw new Exception("Invalid Profile ID.");
+                }
+                
+                var educations = db.TEducations.Where(ed => ed.IdProfile == profile.Id).ToList();
+                var workExps = db.TWorkExperiences.Where(w => w.IdProfile == profile.Id).ToList();
+                var skills = db.TSkills.Where(s => s.IdProfile == profile.Id).ToList();
+                var references = db.TReferences.Where(r => r.IdProfile == profile.Id).ToList();
 
-                return entity;
+                var dataReturn = new {
+                    PersonalInformation = profile,
+                    Educations= educations,
+                    WorkExps = workExps,
+                    Skills = skills,
+                    References = references,
+                };
+               
+                return Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             }
         }
 
-        public List<TProfile> GetProfileByUserId(int idUser)
-        {
-            using (var db = new GvGenEntities())
-            {
-                var list = db.TProfiles.Where(e => e.IdUser == idUser).ToList();
+        //[HttpGet]       
+        //public TProfile GetProfile(int id)
+        //{
+        //    using (var db = new GvGenEntities())
+        //    {
+        //        var entity = db.TProfiles.FirstOrDefault(e => e.Id == id);
 
-                return list;
-            }
-        }
+        //        return entity;
+        //    }
+        //}
+
+        //public List<TProfile> GetProfileByUserId(int idUser)
+        //{
+        //    using (var db = new GvGenEntities())
+        //    {
+        //        var list = db.TProfiles.Where(e => e.IdUser == idUser).ToList();
+
+        //        return list;
+        //    }
+        //}
     }
 }
