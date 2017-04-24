@@ -3,6 +3,7 @@ using CVGenerator.Models;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -32,7 +33,13 @@ namespace CVGenerator.Controllers
                 var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
                 if (entities.Count == 1)
                 {
+                    var ticket = new FormsAuthenticationTicket(1, "userId", DateTime.Now, DateTime.Now.AddMinutes(30), false, entities[0].Id.ToString());
+                    string token = System.Web.Security.FormsAuthentication.Encrypt(ticket);
+                    AccountHelper.Token = token;
+                    
+                    //new FormsAuthentication().SetAuthCookie(model.Email, model.RememberMe, ticketData);
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -90,6 +97,7 @@ namespace CVGenerator.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
+            AccountHelper.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

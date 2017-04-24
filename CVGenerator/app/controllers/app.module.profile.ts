@@ -3,14 +3,15 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService'];
+        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService', 'referenceService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
                 function ($scope, $location, logger,
                     profileService: Services.ProfileService,
                     skillService: Services.SkillService,
-                    workExpService: Services.WorkExpService) {
+                    workExpService: Services.WorkExpService,
+                    referenceService: Services.ReferenceService) {
 
                     $scope.InitCreateProfile = () => {
                         $scope.steps = [
@@ -29,8 +30,18 @@ module CVGen.Controller {
                         $scope.References = [];
                         $scope.WorkExps = [];
 
-                        var tokens = $location.$$path.split("/");
-                        var id = tokens[3];
+                        var tokens = $location.$$absUrl.split("/");
+                        var id = "";
+
+                        var regexGuid = /^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/gi;
+                        for (let token of tokens) {
+                            var isGuid = regexGuid.test(token);
+                            if (isGuid) {
+                                id = token;
+                                break;
+                            }
+                        }
+
                         if (id != null && id.length > 0) {
                             //update
                             profileService.GetProfile(id)
@@ -102,6 +113,9 @@ module CVGen.Controller {
                             case 'skill': {
                                 $scope.SubmitSkills();
                             }
+                            case 'reference': {
+                                $scope.SubmitRefs();
+                            }
                         }
                     }
 
@@ -114,6 +128,16 @@ module CVGen.Controller {
                             case 'education': {
                                 $scope.GotoEducation();
                                 break;
+                            }
+                            case 'workExperience': {
+                                $scope.GotoWorkExp();
+                                break;
+                            }
+                            case 'skill': {
+                                $scope.GotoSkill();
+                            }
+                            case 'reference': {
+                                $scope.GotoRef();
                             }
                         }
                     };
@@ -195,14 +219,24 @@ module CVGen.Controller {
                     };
 
                     $scope.SubmitSkills = () => {
-                        skillService.SubmitSkills($scope.Skills)
+                        skillService.SubmitSkills($scope.ProfileId, $scope.Skills)
                             .then((response) => {
                                 if (response.status == 200) {
                                     logger.log("Saved successfully.");
+                                    $scope.RebindSkills();
                                 }
                             });
                     };
 
+                    $scope.RebindSkills = () => {
+                        $scope.Skills = [];
+                        skillService.GetSkills($scope.ProfileId)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    $scope.Skills = response.data;
+                                }
+                            });
+                    };
 
                     //work experience
                     $scope.RemoveWorkExp = (index) => {
@@ -238,6 +272,37 @@ module CVGen.Controller {
                             .then((response) => {
                                 if (response.status == 200) {
                                     $scope.WorkExps = response.data;
+                                }
+                            });
+                    };
+
+                    //reference
+                    $scope.RemoveRef = (index) => {
+                        $scope.References.splice(index, 1);
+                    };
+
+                    $scope.AddRef = () => {
+                        $scope.References.push({
+                            IdProfile: $scope.ProfileId
+                        });
+                    };
+
+                    $scope.SubmitRefs = () => {
+                        referenceService.SubmitRefs($scope.ProfileId, $scope.References)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    logger.log("Saved successfully.");
+                                    $scope.RebindRefs();
+                                }
+                            });
+                    };
+
+                    $scope.RebindRefs = () => {
+                        $scope.References = [];
+                        referenceService.GetRefs($scope.ProfileId)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    $scope.References = response.data;
                                 }
                             });
                     };

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CVGenerator.Models;
 using CVGenerator.Entities;
+using System.Web.Security;
 
 namespace CVGenerator.Controllers
 {
@@ -53,10 +54,20 @@ namespace CVGenerator.Controllers
             return View();
         }
 
-        [HttpPost]
-        public JsonResult AddProfile(Profile model)
+        [Authorize]
+        public ActionResult ViewMyCvs()
         {
-            return new JsonResult();
+            var userId = Convert.ToInt32(FormsAuthentication.Decrypt(AccountHelper.Token).UserData);
+            var userEmail = HttpContext.User.Identity.Name;
+            MyCvsViewModel viewModel = new MyCvsViewModel();
+            viewModel.UserEmail = userEmail;
+            using (var db = new GvGenEntities())
+            {
+                var user = db.TUsers.First(u => u.Email == userEmail);
+                viewModel.PersonalInformations = db.TProfiles.Where(p => p.IdUser == userId).ToList();
+            }
+
+            return View(viewModel);
         }
     }
 }

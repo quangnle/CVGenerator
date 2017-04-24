@@ -1,0 +1,49 @@
+﻿<div ng-controller="UserResumeCtrl"  ng-init="InitViewMyCvs(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">
+    <div class="body-content clearfix">
+
+        <div class="bg-color1">
+            <div class="container">
+                <div class="col-md-3 col-sm-3">
+                    <div class="block-section text-center ">
+                        <img src="~/Content/Main/images/people/4.jpg" class="img-rounded" alt="">
+                        <div class="white-space-20"></div>
+                        <h4>{{AccountInfo.UserEmail}}</h4>
+                        <div class="white-space-20"></div>
+                        <ul class="list-unstyled">
+                            <li><a href="MyCVs"> Resumes ({{PersonalInformations.length}})</a></li>
+                            <li><a href="change_password.html"> Change Password</a></li>
+                        </ul>
+                        <div class="white-space-20"></div>
+                        <a href="#" class="btn  btn-line soft  btn-theme btn-pill btn-block">Build New Resume</a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9">
+                    <div class="block-section box-side-account">
+                        <h3 class="no-margin-top">My CVs</h3>
+                        <hr />
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Full Name</th>
+                                        <th>Job Title</th>
+                                        <th class="text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="pi in PersonalInformations">
+                                        <th scope="row">{{$index+1}}</th>
+                                        <td>{{pi.FirstName}} {{pi.LastName}}</td>
+                                        <td>{{pi.Occupation}}</td>
+                                        <td class="text-right"><a href="#" class="btn btn-theme btn-xs btn-default">Remove</a></td>
+                                    </tr>                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

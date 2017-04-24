@@ -36,6 +36,14 @@ namespace CVGenerator.Controllers.API
         public HttpResponseMessage SubmitPersonalInfo([FromBody]Profile profile)
         {
             var entity = profile.GetNew();
+
+            var token = Request.Headers.Authorization;
+            if (token != null)
+            {
+                var userId = Convert.ToInt32(System.Web.Security.FormsAuthentication.Decrypt(token.Scheme).UserData);
+                entity.IdUser = userId;
+            }
+
             using (var db = new GvGenEntities())
             {
                 if (entity.Id > 0)

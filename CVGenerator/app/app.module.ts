@@ -10,6 +10,12 @@
 
     function httpInterceptor(logger) {
         return {
+            request: function (config) {
+                //config.headers['Authorization'] = "Bearer " + CVGen.Base.UserToken;
+                config.headers.Authorization = CVGen.Base.UserToken;        
+                return config;
+            },
+
             response: function (res) {
                 if (res.status != 200) {
                     logger.logWarning("ERROR CODE " + res.status);
@@ -30,10 +36,10 @@
     }
 
     cvGeneratorApp.config(function ($locationProvider) {
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
+        //$locationProvider.html5Mode({
+        //    enabled: true,
+        //    requireBase: false
+        //});
         //$locationProvider.hashPrefix("");
     });
 
@@ -41,6 +47,7 @@
     cvGeneratorApp.service("skillService", CVGen.Services.SkillService);
     cvGeneratorApp.service("templateService", CVGen.Services.TemplateService);
     cvGeneratorApp.service("workExpService", CVGen.Services.WorkExpService);
+    cvGeneratorApp.service("referenceService", CVGen.Services.ReferenceService);
 
     CVGen.Controller.Home.Configure(cvGeneratorApp);
     CVGen.Controller.Resume.Configure(cvGeneratorApp);

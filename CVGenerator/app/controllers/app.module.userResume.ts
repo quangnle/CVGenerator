@@ -16,8 +16,15 @@ module CVGen.Controller {
                     $scope.WorkExps = data.WorkExps;
                     $scope.Skills = data.Skills;
                     $scope.References = data.References;
+
+                    $scope.Title = data.PersonalInformation.FirstName + " " + data.PersonalInformation.LastName + " - Curriculum Vitae";
                 }
 
+                $scope.InitViewMyCvs = (data) => {
+                    $scope.AccountInfo = {};
+                    $scope.AccountInfo.UserEmail = data.UserEmail;
+                    $scope.PersonalInformations = data.PersonalInformations;                  
+                }
             })
         }
     }

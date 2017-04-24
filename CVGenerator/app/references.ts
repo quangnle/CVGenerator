@@ -1,6 +1,7 @@
 ﻿/// <reference path="../Scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../Scripts/typings/toastr/toastr.d.ts" />
 
+/// <reference path="base.ts" />
 
 /// <reference path="controllers/app.module.home.ts" />
 /// <reference path="controllers/app.module.resume.ts" />
@@ -11,3 +12,4 @@
 /// <reference path="services/templateService.ts" />
 /// <reference path="services/skillService.ts" />
 /// <reference path="services/workExpService.ts" />
+/// <reference path="services/referenceService.ts" />

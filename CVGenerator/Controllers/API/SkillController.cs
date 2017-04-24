@@ -33,7 +33,16 @@ namespace CVGenerator.Controllers.API
             var success = UpdateConvertibleModelList<Skill, TSkill>(profileId, skills);
 
             return new HttpResponseMessage(HttpStatusCode.OK);
+        }
 
+        [HttpGet]
+        public List<TSkill> GetSkills(int idProfile)
+        {
+            using (var db = new GvGenEntities())
+            {
+                var lst = db.TSkills.Where(e => e.IdProfile == idProfile).ToList();
+                return lst;
+            }
         }
     }
 }

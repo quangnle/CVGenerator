@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@*@{
+        using System.Web.Security;
+        using FormsAuthenticationExtensions;
+    }*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -14,7 +18,12 @@
     <link href="~/dist/css.style.min.css" rel="stylesheet">
     <link href="~/Content/Main/css/theme.css" rel="stylesheet">
     <link href="~/Content/Main/css/theme-custom.css" rel="stylesheet">
-
+    @if (Request.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            var userToken = '@AccountHelper.Token';
+        </script>
+    }
 </head>
 <body data-ng-app="cvGeneratorApp">
     <div class="wrapper">
@@ -23,7 +32,7 @@
         @RenderBody()
 
         <section ng-include="'/app/views/footer.html'"></section>
-    </div>   
+    </div>
 
     <script src="~/dist/jquery.bundle.min.js"></script>
     <script src="~/dist/app-build.js"></script>
