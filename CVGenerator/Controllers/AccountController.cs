@@ -36,7 +36,7 @@ namespace CVGenerator.Controllers
                     var ticket = new FormsAuthenticationTicket(1, "userId", DateTime.Now, DateTime.Now.AddMinutes(30), false, entities[0].Id.ToString());
                     string token = System.Web.Security.FormsAuthentication.Encrypt(ticket);
                     AccountHelper.Token = token;
-                    
+
                     //new FormsAuthentication().SetAuthCookie(model.Email, model.RememberMe, ticketData);
                     FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe);
 
@@ -91,6 +91,41 @@ namespace CVGenerator.Controllers
         [AllowAnonymous]
         public ActionResult ConfirmEmail()
         {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            using (var context = new GvGenEntities())
+            {
+                var mailExists = context.TUsers.FirstOrDefault(m => m.Email == HttpContext.User.Identity.Name && m.Password == model.OldPassword);
+                if (mailExists != null)
+                {
+                    var entity = new TUser();
+                    entity.Password = model.Password;
+                    context.SaveChanges();
+                    ModelState.AddModelError("Info", "Your password has been changed successfully! Thank you.");
+                    //return new JavascriptResult() { Script = "alert('Successfully registered');" };
+                }
+                else
+                {
+                    ModelState.AddModelError("OldPassword", "Current password incorrect.");
+                    return View(model);
+                }
+            }
             return View();
         }
 

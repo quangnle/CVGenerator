@@ -5,29 +5,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
-                    <li class=""><a href="resume_list.html"><strong>Post a Resumes</strong></a></li>
-                    <li class=""><a href="jo"><strong>Post a Job</strong></a></li>
+                    <li class=""><a href="@Url.Action("CreateProfile","Resume")"><strong>Build My Resume Now !</strong></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.IsAuthenticated)
-                    {                     
-                        //Context.User.Identity.Name
-                        @*using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                            {
-                                @Html.AntiForgeryToken()
-
-                                <a href="javascript:document.getElementById('logoutForm').submit()">
-                                    <span class="pull-left">Sign out</span> <i class="pull-right fa fa-sign-out"></i>
-                                </a>
-                            }*@
-
+                    {
                         <li class="dropdown">
                             <a href="#" class="link-profile dropdown-toggle" data-toggle="dropdown">
                                 <img src="/Content/Main/images/people/4.jpg" alt="" class="img-profile"> &nbsp; @System.Web.HttpContext.Current.User.Identity.Name <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="my_alerts.html"> My CVs</a></li>
+                                <li><a href="~/MyCVs"> My CVs</a></li>
                                 @*<li><a href="my_notifications.html"> Notifications <span class="badge ">5</span></a></li>*@
                                 <li><a href="change_password.html"> Change Password</a></li>
                             </ul>
@@ -46,7 +34,7 @@
         </div>
     </nav><!-- end main navbar -->
     <!-- mobile navbar -->
-    <div class="container">
+    @*<div class="container">
         <nav class="mobile-nav hidden-md hidden-lg">
             <a href="#" class="btn-nav-toogle first">
                 <span class="bars"></span>
@@ -60,7 +48,7 @@
                 </a>
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
+                    <li class=""><a href="job_list.html"><strong>Build My Resume Now !</strong></a></li>
                     <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
                     <li class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
                     <li><a href="login.html"><strong>Login</strong></a></li>
@@ -90,7 +78,7 @@
                 </ul>
             </div>
         </nav>
-    </div><!-- mobile navbar -->
+    </div>*@<!-- mobile navbar -->
 
 
 </header><!-- end main-header -->

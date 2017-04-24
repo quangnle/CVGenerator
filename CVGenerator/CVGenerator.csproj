@@ -336,6 +336,7 @@
     <Compile Include="Models\Education.cs" />
     <Compile Include="Models\IConvertibleModel.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\ChangePasswordViewModel.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\Register.cs" />
@@ -419,6 +420,7 @@
     <Content Include="Views\Resume\ViewUserProfile.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Resume\ViewMyCvs.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
