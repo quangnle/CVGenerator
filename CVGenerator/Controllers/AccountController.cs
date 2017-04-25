@@ -111,14 +111,13 @@ namespace CVGenerator.Controllers
 
             using (var context = new GvGenEntities())
             {
-                var mailExists = context.TUsers.FirstOrDefault(m => m.Email == HttpContext.User.Identity.Name && m.Password == model.OldPassword);
-                if (mailExists != null)
-                {
-                    var entity = new TUser();
+                var entity = context.TUsers.FirstOrDefault(m => m.Email == HttpContext.User.Identity.Name && m.Password == model.OldPassword);
+                if (entity != null)
+                {                 
                     entity.Password = model.Password;
+                    context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
-                    ModelState.AddModelError("Info", "Your password has been changed successfully! Thank you.");
-                    //return new JavascriptResult() { Script = "alert('Successfully registered');" };
+                    ViewBag.SuccessMessage = "Your password has been changed successfully! Thank you.";
                 }
                 else
                 {

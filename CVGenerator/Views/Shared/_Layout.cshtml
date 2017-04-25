@@ -18,12 +18,11 @@
     <link href="~/dist/css.style.min.css" rel="stylesheet">
     <link href="~/Content/Main/css/theme.css" rel="stylesheet">
     <link href="~/Content/Main/css/theme-custom.css" rel="stylesheet">
-    @if (Request.IsAuthenticated)
-    {
-        <script type="text/javascript">
-            var userToken = '@AccountHelper.Token';
-        </script>
-    }
+
+    <script type="text/javascript">
+        var userToken = '@AccountHelper.Token';
+    </script>
+    <script src="~/dist/jquery.bundle.min.js"></script>
 </head>
 <body data-ng-app="cvGeneratorApp">
     <div class="wrapper">
@@ -33,8 +32,7 @@
 
         <section ng-include="'/app/views/footer.html'"></section>
     </div>
-
-    <script src="~/dist/jquery.bundle.min.js"></script>
+    
     <script src="~/dist/app-build.js"></script>
     <script src="~/Content/Main/js/theme.js"></script>
 </body>

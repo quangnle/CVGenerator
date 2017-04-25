@@ -12,7 +12,7 @@
         return {
             request: function (config) {
                 //config.headers['Authorization'] = "Bearer " + CVGen.Base.UserToken;
-                config.headers.Authorization = CVGen.Base.UserToken;        
+                config.headers.Authorization = CVGen.Base.Const.USER_TOKEN;        
                 return config;
             },
 
@@ -54,6 +54,13 @@
     CVGen.Controller.Profile.Configure(cvGeneratorApp);
     CVGen.Controller.UserResume.Configure(cvGeneratorApp);
 
+    cvGeneratorApp.config(() => {
+        if (CVGen.Base.Const.USER_TOKEN == null || CVGen.Base.Const.USER_TOKEN == '') {
+            CVGen.Base.Const.USER_TOKEN = localStorage.getItem("tk");
+        } else {
+            localStorage.setItem("tk", CVGen.Base.Const.USER_TOKEN);
+        }
+    });
 
     cvGeneratorApp.factory("logger", [
         function () {

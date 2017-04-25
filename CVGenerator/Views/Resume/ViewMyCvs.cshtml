@@ -11,7 +11,7 @@
                         <div class="white-space-20"></div>
                         <ul class="list-unstyled">
                             <li><a href="MyCVs"> Resumes ({{PersonalInformations.length}})</a></li>
-                            <li><a href="change_password.html"> Change Password</a></li>
+                            <li><a href="@Url.Action("ChangePassword","Account")"> Change Password</a></li>
                         </ul>
                         <div class="white-space-20"></div>
                         <a href="@Url.Action("CreateProfile","Resume")" class="btn  btn-line soft  btn-theme btn-pill btn-block">Build New Resume</a>
@@ -36,7 +36,7 @@
                                         <th scope="row">{{$index+1}}</th>
                                         <td>{{pi.FirstName}} {{pi.LastName}}</td>
                                         <td>{{pi.Occupation}}</td>
-                                        <td class="text-right"><a href="#" class="btn btn-theme btn-xs btn-default">Remove</a></td>
+                                        <td class="text-right"><a ng-href="Resume/CreateProfile/{{pi.IdProfile}}" class="btn btn-theme btn-xs btn-default">View</a></td>
                                     </tr>                                   
                                 </tbody>
                             </table>

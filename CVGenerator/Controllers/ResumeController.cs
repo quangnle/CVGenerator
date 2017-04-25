@@ -57,12 +57,13 @@ namespace CVGenerator.Controllers
         [Authorize]
         public ActionResult ViewMyCvs()
         {
-            var userId = Convert.ToInt32(FormsAuthentication.Decrypt(AccountHelper.Token).UserData);
             var userEmail = HttpContext.User.Identity.Name;
             MyCvsViewModel viewModel = new MyCvsViewModel();
             viewModel.UserEmail = userEmail;
+
             using (var db = new GvGenEntities())
             {
+                var userId = db.TUsers.First(u => u.Email == userEmail).Id;
                 var user = db.TUsers.First(u => u.Email == userEmail);
                 viewModel.PersonalInformations = db.TProfiles.Where(p => p.IdUser == userId).ToList();
             }
