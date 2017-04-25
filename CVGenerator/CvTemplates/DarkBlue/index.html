@@ -113,19 +113,16 @@
                         </div>
                         <div class="col-70 pull-right">
                             <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <h4>Senior Project Manager <span>Jul 2008 - present</span></h4>
-                                <h5>Web Design Studios, Full-Time</h5>
-                                <ul class="bullet-01">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                                    <li>Vivamus vitae libero odio, eu interdum elit</li>
-                                    <li><a href="#">Donec dignissim purus vel leo accumsan interdum</a></li>
-                                    <li>Proin sit amet massa mi, <a href="#">in volutpat ante</a></li>
-                                </ul>
+                            <div class="resume-section-child" ng-repeat="work in WorkExps" >
+                                <h4>{{work.Position}} <span>{{GetRangeTime(work.FromMonth,work.FromYear,work.ToMonth,work.ToYear)}}</span></h4>
+                                <h5>{{work.Company}}</h5>
+                               <div class="bullet-01">
+                                   {{work.Description}}
+                               </div>
                             </div>
                             <!-- SECTION CHILD END -->
                             <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
+                            <!--<div class="resume-section-child">
                                 <h4>Senior Project Manager <span>Jul 2002 - Jul 2008</span></h4>
                                 <h5>Web Design Studios, Full-Time</h5>
                                 <ul class="bullet-01">
@@ -134,7 +131,7 @@
                                     <li><a href="#">Donec dignissim purus vel leo accumsan interdum</a></li>
                                     <li>Proin sit amet massa mi, <a href="#">in volutpat ante</a></li>
                                 </ul>
-                            </div>
+                            </div>-->
                             <!-- SECTION CHILD END -->
                         </div>
                         <div class="clearfixed"></div>
@@ -148,97 +145,17 @@
                         <div class="col-70 pull-right">
                             <!-- SECTION CHILD -->
                             <div class="resume-section-child">
-                                <div class="skill-name">Front-end Design</div>
+                                <!--<div class="skill-name">Front-end Design</div>-->
                                 <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-2">20%</div>
-                                        <div class="skill-content">Xhtml</div>
+                                    <div class="skill-items-detail" ng-repeat="skill in Skills" ng-init="rate=skill.Score*2">
+                                        <div class="skill-rate rate-{{rate}}">20%</div>
+                                        <div class="skill-content">{{skill.Name}}</div>
                                         <div class="clearfixed"></div>
-                                    </div>
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-7">70%</div>
-                                        <div class="skill-content">Css 3.0</div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-5">50%</div>
-                                        <div class="skill-content">Javascript jQuery Framework </div>
-                                        <div class="clearfixed"></div>
-                                    </div>
+                                    </div>              
                                 </div>
                                 <div class="clearfixed"></div>
                             </div>
-                            <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <div class="skill-name">Back-end Development</div>
-                                <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-9">90%</div>
-                                        <div class="skill-content">CodeIgniter web application framework</div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-7">70%</div>
-                                        <div class="skill-content">MySql Databases</div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfixed"></div>
-                            </div>
-                            <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <div class="skill-name">Adobe Photoshop</div>
-                                <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-6">60%</div>
-                                        <div class="skill-content">Produce layouts for web and print</div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfixed"></div>
-                            </div>
-                            <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <div class="skill-name">Adobe Indesign</div>
-                                <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-7">70%</div>
-                                        <div class="skill-content">DTP - Preparation for print</div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfixed"></div>
-                            </div>
-                            <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <div class="skill-name">Windows OS</div>
-                                <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-9">90%</div>
-                                        <div class="skill-content">Excelent platform knowledge and administrative capabilities </div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfixed"></div>
-                            </div>
-                            <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <div class="resume-section-child">
-                                <div class="skill-name">Microsoft Office Suite Moderate experience </div>
-                                <div class="skill-items">
-                                    <div class="skill-items-detail">
-                                        <div class="skill-rate rate-10">100%</div>
-                                        <div class="skill-content"> Edit documents in Word, Excel spreadsheets </div>
-                                        <div class="clearfixed"></div>
-                                    </div>
-                                </div>
-                                <div class="clearfixed"></div>
-                            </div>
-                            <!-- SECTION CHILD END -->
+                            <!-- SECTION CHILD END -->                          
                         </div>
                         <div class="clearfixed"></div>
                     </div>
@@ -256,12 +173,23 @@
                                 <p>{{edu.Description}}</p>
                             </div>
                             <!-- SECTION CHILD END -->
+                        </div>
+                        <div class="clearfixed"></div>
+                    </div>
+                    <!-- RESUME SECTION END -->
+
+                    <!-- RESUME SECTION -->
+                    <div class="resume-section">
+                        <div class="col-30 pull-left">
+                            <h3>Reference</h3>
+                        </div>
+                        <div class="col-70 pull-right">
                             <!-- SECTION CHILD -->
-                            <!--<div class="resume-section-child">
-                                <h4>Boston State University <span>2003 - 2007</span></h4>
-                                <h6><a href="#">www.bostonstate.com</a></h6>
-                                <p>In hac habitasse platea dictumst. Suspendisse posuere rutrum augue in aliquam. Vivamus vulputate tellus ac lorem viverra rutrum. Proin nisl massa, lobortis vel tristique vel, consectetur at orci. Donec nibh tellus, viverra eu pellentesque sed, sollicitudin in dolor. Etiam et lacus mi, vel luctus justo.</p>
-                            </div>-->
+                            <div class="resume-section-child" ng-repeat="edu in Educations">
+                                <h4>{{edu.University}} <span>{{edu.FromYear}} - {{edu.ToYear}}</span></h4>
+                                <h6>{{edu.Degree}}</a></h6>
+                                <p>{{edu.Description}}</p>
+                            </div>
                             <!-- SECTION CHILD END -->
                         </div>
                         <div class="clearfixed"></div>
@@ -272,8 +200,8 @@
             <!-- CONTAINER END -->
             <!-- FOOTER -->
             <div id="footer">
-                <p class="copyright text-right">&copy;2014 The Pooh. All rights reserved.</p>
-                <a href="#wrap" class="btn-top"><img src="images/icon/icon_000_backtop.png" alt="" title="" /></a>
+                <p class="copyright text-right">&copy;2017 The Pooh. All rights reserved.</p>
+                <a href="#wrap" class="btn-top"><img ng-src="{{TemplateSrc}}images/icon/icon_000_backtop.png" alt="" title="" /></a>
             </div>
             <!-- FOOTER END -->
         </div>

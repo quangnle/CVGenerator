@@ -27,7 +27,7 @@ namespace CVGenerator.Controllers.API
              
         protected virtual IQueryable<IEntity> GetListDb(int parentId, DbSet dbSet)
         {
-            return dbSet.Cast<IEntity>().AsQueryable();
+            return dbSet.Cast<TSkill>().AsQueryable();
         }
 
         protected bool UpdateConvertibleModelList<T, K>(int parentId, List<T> lst) where T : IConvertibleModel<K> where K : IEntity

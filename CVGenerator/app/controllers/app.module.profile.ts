@@ -112,9 +112,11 @@ module CVGen.Controller {
                             }
                             case 'skill': {
                                 $scope.SubmitSkills();
+                                break;
                             }
                             case 'reference': {
                                 $scope.SubmitRefs();
+                                break;
                             }
                         }
                     }
@@ -135,9 +137,11 @@ module CVGen.Controller {
                             }
                             case 'skill': {
                                 $scope.GotoSkill();
+                                break;
                             }
                             case 'reference': {
                                 $scope.GotoRef();
+                                break;
                             }
                         }
                     };
