@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a887566a91ec4acd90779c90f32a2b72" Name="Diagram1">
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TEducation" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TProfile" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TReference" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TResume" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TSkill" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TTemplate" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TUser" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="UAB.DatabaseModel.TWorkExperience" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TEducation" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TProfile" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TReference" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TResume" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TSkill" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TTemplate" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TUser" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UAB.DatabaseModel.TWorkExperience" Width="1.5" PointX="6.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

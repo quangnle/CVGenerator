@@ -49,7 +49,6 @@ module CVGen.Controller {
                                     if (response.status == 200) {
                                         var res = <any>response.data;
                                         $scope.ProfileId = res.PersonalInformation.Id;
-
                                         $scope.ProfileGuidId = res.PersonalInformation.IdProfile;
                                         $scope.Profile = res.PersonalInformation;
                                         $scope.Educations = res.Educations;
@@ -70,6 +69,8 @@ module CVGen.Controller {
                                     if ($scope.ProfileId == null) {
                                         $location.path($location.$$path + (<any>response.data).GuidId);
                                     }
+                                    $scope.Profile.Id = (<any>response.data).Id;
+                                    $scope.Profile.IdProfile = (<any>response.data).GuidId;
                                     $scope.ProfileId = (<any>response.data).Id;
                                     $scope.ProfileGuidId = (<any>response.data).GuidId;
                                 }

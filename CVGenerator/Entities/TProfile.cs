@@ -15,6 +15,7 @@ namespace CVGenerator.Entities
     public partial class TProfile
     {
         public int Id { get; set; }
+        public System.Guid IdProfile { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
@@ -30,6 +31,5 @@ namespace CVGenerator.Entities
         public string AboutMe { get; set; }
         public string Photo { get; set; }
         public Nullable<int> IdUser { get; set; }
-        public System.Guid IdProfile { get; set; }
     }
 }
