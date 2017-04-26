@@ -1,11 +1,15 @@
 ﻿using CVGenerator.Entities;
 using CVGenerator.Models;
+using CVGenerator.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace CVGenerator.Controllers.API
@@ -91,6 +95,33 @@ namespace CVGenerator.Controllers.API
 
                 return Request.CreateResponse(HttpStatusCode.OK, dataReturn);
             }
+        }
+
+        [HttpGet]
+        public HttpResponseMessage Generate(string id)
+        {
+            var gen = PdfGenerator.GetInstance();
+            var exportPath = ConfigurationManager.AppSettings["CVPath"];
+            gen.ConvertToPDF(Request.RequestUri.ToString(), Request.RequestUri.ToString() + exportPath + "/" + id + ".pdf");
+            
+            var byteArr = File.ReadAllBytes(exportPath + "/" + id + ".pdf");
+
+            var stream = new MemoryStream(byteArr);
+            // processing the stream.
+
+            var result = new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(stream.ToArray())
+            };
+            result.Content.Headers.ContentDisposition =
+                new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment")
+                {
+                    FileName = "CV.pdf"
+                };
+            result.Content.Headers.ContentType =
+                new MediaTypeHeaderValue("application/octet-stream");
+
+            return result;
         }
 
         //[HttpGet]       

@@ -170,7 +170,7 @@
                             <!-- SECTION CHILD -->
                             <div class="resume-section-child" ng-repeat="edu in Educations">
                                 <h4>{{edu.University}} <span>{{edu.FromYear}} - {{edu.ToYear}}</span></h4>
-                                <h6>{{edu.Degree}}</a></h6>
+                                <h6>{{edu.Degree}}</h6>
                                 <p>{{edu.Description}}</p>
                             </div>
                             <!-- SECTION CHILD END -->
@@ -187,9 +187,12 @@
                         <div class="col-70 pull-right">
                             <!-- SECTION CHILD -->
                             <div class="resume-section-child" ng-repeat="ref in References">
-                                <h4><i>{{ref.Initial}}</i> {{ref.FirstName}} {{ref.LastName}}<span>{{ref.Email}}</span></h4>
-                                <h6>{{ref.Relationship}}</a></h6>
-                                <p>{{ref.Phone}}</p>
+                                <h4><i>{{ref.Initial}}</i> {{ref.FirstName}} {{ref.LastName}}</h4>
+                                <h6>{{ref.Relationship}}</h6>
+                                <ul>
+                                    <li>{{ref.Email}}</li>
+                                    <li>{{ref.Phone}}</li>
+                                </ul>
                             </div>
                             <!-- SECTION CHILD END -->
                         </div>

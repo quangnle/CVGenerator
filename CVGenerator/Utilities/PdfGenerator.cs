@@ -9,8 +9,7 @@ using System.Web;
 namespace CVGenerator.Utilities
 {
     public class PdfGenerator
-    {
-        private string _downloadUrl;
+    {   
         private string _exportPath;
         private HtmlToPdfConverter _converter = null;
         private static PdfGenerator _instance = null;
@@ -18,7 +17,6 @@ namespace CVGenerator.Utilities
         public PdfGenerator()
         {
             _exportPath = ConfigurationManager.AppSettings["CVPath"];
-            _downloadUrl = ConfigurationManager.AppSettings["CVUrl"];
             _converter = new HtmlToPdfConverter();
         }
 
@@ -29,12 +27,10 @@ namespace CVGenerator.Utilities
             return _instance;
         }
 
-        public string ConvertToPDF(string url, string output)
+        public void ConvertToPDF(string url, string output)
         {
             var fileName = _exportPath + "/" + output;
             _converter.GeneratePdfFromFile(url, null, output);
-
-            return _downloadUrl + "/" + output;
         }
     }
 }
