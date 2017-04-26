@@ -14,6 +14,9 @@ module CVGen.Controller {
                     referenceService: Services.ReferenceService) {
 
                     $scope.InitCreateProfile = () => {
+                        $scope.myImage = '';
+                        $scope.myCroppedImage = '';
+
                         $scope.steps = [
                             'personalInformation',
                             'education',
@@ -59,6 +62,17 @@ module CVGen.Controller {
                                 });
                         }
                     }
+
+                    $scope.uploadFileNameChanged = (evt) => {
+                        var file = evt.currentTarget.files[0];
+                        var reader = new FileReader();
+                        reader.onload = function (evt) {
+                            $scope.$apply(function ($scope) {
+                                $scope.myImage = (<any>evt.target).result;
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    };
 
                     $scope.SubmitPersonalInfo = () => {
                         var profile = $scope.Profile;
