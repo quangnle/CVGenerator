@@ -30,12 +30,6 @@ namespace CVGenerator.Controllers.API
             if (workExps == null || workExps.Count == 0)
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
 
-            foreach (var we in workExps)
-            {
-                we.Description = we.Description.Replace("\r", "");
-                we.Description = we.Description.Replace("\n", "|");
-            }
-
             var success = UpdateConvertibleModelList<WorkExperience, TWorkExperience>(profileId, workExps);
 
             return new HttpResponseMessage(HttpStatusCode.OK);

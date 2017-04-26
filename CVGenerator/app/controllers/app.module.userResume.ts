@@ -29,7 +29,7 @@ module CVGen.Controller {
 
                     for (var i = 0; i < $scope.WorkExps.length; i++) {
                         var work = $scope.WorkExps[i];
-                        work.DescLines = work.Description.split('|');
+                        work.DescLines = work.Description.split(/\r?\n/);
                     }
 
                     $scope.Skills = data.Skills;
