@@ -32,7 +32,7 @@
 <body>
     <div id="wrapper">
         <!-- -->
-        <div class="nav-floating">
+        <!--<div class="nav-floating">
             <ul>
                 <li><a href="#">Personal Detail</a></li>
                 <li><a href="#">Professional Profile</a></li>
@@ -41,7 +41,7 @@
                 <li><a href="#">Education</a></li>
                 <li><a href="#">Reference</a></li>
             </ul>
-        </div>
+        </div>-->
         <!-- -->
         <div id="wrap">
             <!-- HEADER -->
@@ -97,7 +97,7 @@
                     </div>
                     <!-- RESUME SECTION END -->
                     <!-- RESUME SECTION -->
-                    <div class="resume-section">
+                    <div class="resume-section" ng-hide="PersonalInformation.AboutMe.length==0">
                         <div class="col-30 pull-left">
                             <h3>Professional Profile</h3>
                         </div>
@@ -108,13 +108,13 @@
                     </div>
                     <!-- RESUME SECTION END -->
                     <!-- RESUME SECTION -->
-                    <div class="resume-section">
+                    <div class="resume-section" ng-hide="WorkExps.length==0">
                         <div class="col-30 pull-left">
                             <h3>Work Experiences</h3>
                         </div>
                         <div class="col-70 pull-right">
                             <!-- SECTION CHILD -->
-                            <div class="resume-section-child" ng-repeat="work in WorkExps" >
+                            <div class="resume-section-child" ng-repeat="work in WorkExps">
                                 <h4>{{work.Position}} <span>{{GetRangeTime(work.FromMonth,work.FromYear,work.ToMonth,work.ToYear)}}</span></h4>
                                 <h5>{{work.Company}}</h5>
                                 <ul class="bullet-01" ng-repeat="line in work.DescLines">
@@ -122,24 +122,12 @@
                                 </ul>
                             </div>
                             <!-- SECTION CHILD END -->
-                            <!-- SECTION CHILD -->
-                            <!--<div class="resume-section-child">
-                                <h4>Senior Project Manager <span>Jul 2002 - Jul 2008</span></h4>
-                                <h5>Web Design Studios, Full-Time</h5>
-                                <ul class="bullet-01">
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                                    <li>Vivamus vitae libero odio, eu interdum elit</li>
-                                    <li><a href="#">Donec dignissim purus vel leo accumsan interdum</a></li>
-                                    <li>Proin sit amet massa mi, <a href="#">in volutpat ante</a></li>
-                                </ul>
-                            </div>-->
-                            <!-- SECTION CHILD END -->
                         </div>
                         <div class="clearfixed"></div>
                     </div>
                     <!-- RESUME SECTION END -->
                     <!-- RESUME SECTION -->
-                    <div class="resume-section">
+                    <div class="resume-section" ng-hide="Skills.length==0">
                         <div class="col-30 pull-left">
                             <h3>Technical Skills</h3>
                         </div>
@@ -149,20 +137,20 @@
                                 <!--<div class="skill-name">Front-end Design</div>-->
                                 <div class="skill-items">
                                     <div class="skill-items-detail" ng-repeat="skill in Skills" ng-init="rate=skill.Score*2">
-                                        <div class="skill-rate rate-{{rate}}">20%</div>
+                                        <div class="skill-rate rate-{{rate}}">{{rate*10}}%</div>
                                         <div class="skill-content">{{skill.Name}}</div>
                                         <div class="clearfixed"></div>
-                                    </div>              
+                                    </div>
                                 </div>
                                 <div class="clearfixed"></div>
                             </div>
-                            <!-- SECTION CHILD END -->                          
+                            <!-- SECTION CHILD END -->
                         </div>
                         <div class="clearfixed"></div>
                     </div>
                     <!-- RESUME SECTION END -->
                     <!-- RESUME SECTION -->
-                    <div class="resume-section">
+                    <div class="resume-section" ng-hide="Educations.length==0">
                         <div class="col-30 pull-left">
                             <h3>Education</h3>
                         </div>
@@ -178,9 +166,8 @@
                         <div class="clearfixed"></div>
                     </div>
                     <!-- RESUME SECTION END -->
-
                     <!-- RESUME SECTION -->
-                    <div class="resume-section">
+                    <div class="resume-section" ng-hide="References.length==0">
                         <div class="col-30 pull-left">
                             <h3>Reference</h3>
                         </div>
