@@ -26,6 +26,12 @@ module CVGen.Controller {
                     $scope.PersonalInformation = data.PersonalInformation;
                     $scope.Educations = data.Educations;
                     $scope.WorkExps = data.WorkExps;
+
+                    for (var i = 0; i < $scope.WorkExps.length; i++) {
+                        var work = $scope.WorkExps[i];
+                        work.DescLines = work.Description.split('|');
+                    }
+
                     $scope.Skills = data.Skills;
                     $scope.References = data.References;
 
