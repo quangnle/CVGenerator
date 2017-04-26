@@ -419,6 +419,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <None Include="Properties\PublishProfiles\CvPublic.pubxml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\HomePageRedirect.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -431,6 +432,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\controllers\app.module.common.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.home.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.profile.ts" />
     <TypeScriptCompile Include="app\controllers\app.module.userResume.ts" />

@@ -33,7 +33,8 @@ namespace CVGenerator.Controllers
                 var entities = context.TUsers.Where(m => m.Name == model.Email && m.Password == model.Password).ToList();
                 if (entities.Count == 1)
                 {
-                    var ticket = new FormsAuthenticationTicket(1, "userId", DateTime.Now, DateTime.Now.AddMinutes(30), false, entities[0].Id.ToString());
+                    var tickValue = string.Concat(entities[0].Id.ToString(), "|", DateTime.Now.ToFileTime());
+                    var ticket = new FormsAuthenticationTicket(1, "userId", DateTime.Now, DateTime.Now.AddMinutes(30), false, tickValue);
                     string token = System.Web.Security.FormsAuthentication.Encrypt(ticket);
                     AccountHelper.Token = token;
 
@@ -113,7 +114,7 @@ namespace CVGenerator.Controllers
             {
                 var entity = context.TUsers.FirstOrDefault(m => m.Email == HttpContext.User.Identity.Name && m.Password == model.OldPassword);
                 if (entity != null)
-                {                 
+                {
                     entity.Password = model.Password;
                     context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
@@ -133,7 +134,13 @@ namespace CVGenerator.Controllers
         {
             AccountHelper.Clear();
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("HomePageRedirect");
+        }
+
+        [HttpGet]
+        public ActionResult HomePageRedirect()
+        {
+            return View();
         }
     }
 }

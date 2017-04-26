@@ -53,6 +53,7 @@
     CVGen.Controller.Resume.Configure(cvGeneratorApp);
     CVGen.Controller.Profile.Configure(cvGeneratorApp);
     CVGen.Controller.UserResume.Configure(cvGeneratorApp);
+    CVGen.Controller.Common.Configure(cvGeneratorApp);
 
     cvGeneratorApp.config(() => {
         if (CVGen.Base.Const.USER_TOKEN == null || CVGen.Base.Const.USER_TOKEN == '') {

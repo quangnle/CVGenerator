@@ -40,7 +40,8 @@ namespace CVGenerator.Controllers.API
             var token = Request.Headers.Authorization;
             if (token != null && token.Scheme.Length != 0 && token.Scheme != "null")
             {
-                var userId = Convert.ToInt32(System.Web.Security.FormsAuthentication.Decrypt(token.Scheme).UserData);
+                var id = System.Web.Security.FormsAuthentication.Decrypt(token.Scheme).UserData.Split('|')[0];
+                var userId = Convert.ToInt32(id);
                 entity.IdUser = userId;
             }
 
