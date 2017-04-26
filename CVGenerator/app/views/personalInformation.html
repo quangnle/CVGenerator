@@ -1,4 +1,29 @@
-﻿<div>
+﻿<style type="text/css">
+    .cropArea {
+        /*background: #E4E4E4;
+       */
+        float: left;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+</style>
+
+<div>
+    <div class="form-group">
+        <label>Your Photo</label>
+        <div class="row clearfix">
+            <div class="col-xs-12">
+                <div class="cropArea" ng-show="myImage.length>0">
+                    <ui-cropper image="myImage" area-type="rectangle" aspect-ratio="0.78"
+                                result-image="myCroppedImage" result-image-size='{w: 120,h: 155}' init-max-area="true"></ui-cropper>
+                    <!--<ui-cropper image="myImage" result-image="myCroppedImage"></ui-cropper>-->
+                </div>
+                <div>Select an image file: <input type="file" id="fileInput" onchange="angular.element(this).scope().uploadFileNameChanged(event)" /></div>
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         <label>Full Name</label>
         <div class="row clearfix">
@@ -81,47 +106,4 @@
         <div class="color-white-mute"><small>Describe yourself about work experience, skills, or education...</small></div>
         <textarea class="form-control" rows="6" placeholder="Enter your introduction" ng-model="Profile.AboutMe"></textarea>
     </div>
-
-    <!--<div class="form-group">
-        <label ng-show="Profile.Educations.length > 0">Education</label>
-        <div class="alert alert-info alert-dismissible fade in" role="alert" ng-repeat="edu in Profile.Educations`">
-            <button type="button" class="close" ng-click="RemoveEducation($index)" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <div class="form-group">
-                <label>University</label>
-                <div class="row clearfix">
-                    <div class="col-xs-12">
-                        <input type="text" class="form-control " placeholder="University" ng-model="edu.University">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row clearfix">
-                    <div class="col-xs-6">
-                        <input type="text" class="form-control " placeholder="From Year" ng-model="edu.FromYear">
-                    </div>
-                    <div class="col-xs-6">
-                        <input type="text" class="form-control " placeholder="To Year" ng-model="edu.ToYear">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row clearfix">
-                    <div class="col-xs-12">
-                        <textarea class="form-control " placeholder="Description" ng-model="edu.Description"></textarea>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <button class="btn btn-t-primary btn-theme" ng-click="AddEducation()">Add Education</button>
-    </div>-->
-    <!--<div class="form-group ">
-        <button class="btn btn-t-primary btn-theme" ng-click="GotoEducation()">Go to Education</button>
-        <button class="btn btn-t-primary btn-theme" ng-click="GotoSkill()">Go to Skill</button>
-        <button class="btn btn-t-primary btn-theme" ng-click="GotoWorkExp()">Go to Work Experience</button>
-        <button class="btn btn-t-primary btn-theme" ng-click="GotoRef()">Go to References</button>
-    </div>-->
-
 </div>

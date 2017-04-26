@@ -1,7 +1,7 @@
 ﻿/// <reference path="references.ts" />
 'use strict';
 ((): void => {
-    var cvGeneratorApp = angular.module("cvGeneratorApp", []);
+    var cvGeneratorApp = angular.module("cvGeneratorApp", ['uiCropper']);
 
     cvGeneratorApp.factory('httpInterceptor', ['logger', _ => httpInterceptor(_)]);
     cvGeneratorApp.config(['$httpProvider', function ($httpProvider) {

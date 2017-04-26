@@ -19,7 +19,8 @@ gulp.task('vendor-scripts', function () {
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/angular/angular.min.js',
 	            'node_modules/bootstrap/dist/js/bootstrap.min.js',
-                'node_modules/toastr/build/toastr.min.js'
+                'node_modules/toastr/build/toastr.min.js',
+                'node_modules/ui-cropper/compile/minified/ui-cropper.js'
         ]
     }
 
@@ -33,7 +34,8 @@ gulp.task('minify-css', function () {
     gulp.src([
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
         'node_modules/font-awesome/css/font-awesome.min.css',
-        'node_modules/toastr/build/toastr.min.css'
+        'node_modules/toastr/build/toastr.min.css',
+        'node_modules/ui-cropper/compile/minified/ui-cropper.css'
     ])
     .pipe(concat('css.style.min.css'))
     .pipe(gulp.dest(outputLocation + '/'));
