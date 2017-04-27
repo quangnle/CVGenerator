@@ -48,6 +48,7 @@
     cvGeneratorApp.service("templateService", CVGen.Services.TemplateService);
     cvGeneratorApp.service("workExpService", CVGen.Services.WorkExpService);
     cvGeneratorApp.service("referenceService", CVGen.Services.ReferenceService);
+    cvGeneratorApp.service("uploadService", CVGen.Services.UploadService);
 
     CVGen.Controller.Home.Configure(cvGeneratorApp);
     CVGen.Controller.Resume.Configure(cvGeneratorApp);

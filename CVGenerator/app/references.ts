@@ -14,3 +14,4 @@
 /// <reference path="services/skillService.ts" />
 /// <reference path="services/workExpService.ts" />
 /// <reference path="services/referenceService.ts" />
+/// <reference path="services/uploadService.ts" />

@@ -280,6 +280,7 @@
     <Compile Include="Controllers\API\TemplateController.cs" />
     <Compile Include="Controllers\API\EduController.cs" />
     <Compile Include="Controllers\API\ProfileController.cs" />
+    <Compile Include="Controllers\API\UploadController.cs" />
     <Compile Include="Controllers\API\WorkExpController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -336,6 +337,7 @@
     <Compile Include="Models\IConvertibleModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\UploadViewModel.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\Register.cs" />
@@ -432,6 +434,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CvTemplates\DarkBlue\images\projects\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.module.ts" />
@@ -442,6 +445,7 @@
     <TypeScriptCompile Include="app\controllers\app.module.resume.ts" />
     <TypeScriptCompile Include="app\base.ts" />
     <TypeScriptCompile Include="app\references.ts" />
+    <TypeScriptCompile Include="app\services\uploadService.ts" />
     <TypeScriptCompile Include="app\services\referenceService.ts" />
     <TypeScriptCompile Include="app\services\workExpService.ts" />
     <TypeScriptCompile Include="app\services\skillService.ts" />

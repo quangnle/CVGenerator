@@ -3,7 +3,7 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService', 'referenceService'];
+        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService', 'referenceService', 'uploadService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
@@ -11,7 +11,8 @@ module CVGen.Controller {
                     profileService: Services.ProfileService,
                     skillService: Services.SkillService,
                     workExpService: Services.WorkExpService,
-                    referenceService: Services.ReferenceService) {
+                    referenceService: Services.ReferenceService,
+                    uploadService: Services.UploadService) {
 
                     $scope.InitCreateProfile = () => {
                         $scope.myImage = '';
@@ -74,7 +75,15 @@ module CVGen.Controller {
                         reader.readAsDataURL(file);
                     };
 
-                    $scope.SubmitPersonalInfo = () => {
+                    $scope.SubmitPersonalInfo = () => {                     
+                        uploadService.CvPhoto($scope.myImage)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    logger.log("Saved successfully.");
+                                  
+                                }
+                            });
+
                         var profile = $scope.Profile;
                         profileService.SubmitPersonalInfo(profile)
                             .then((response) => {
