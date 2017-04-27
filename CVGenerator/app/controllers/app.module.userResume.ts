@@ -47,8 +47,6 @@ module CVGen.Controller {
                 }
 
                 $scope.ExportMyCv = () => {
-
-
                     html2canvas(document.body, {
                         onrendered: function (canvas) {
                             var data = canvas.toDataURL();
