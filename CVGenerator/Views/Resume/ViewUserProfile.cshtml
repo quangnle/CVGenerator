@@ -5,9 +5,10 @@
 <div data-ng-app="cvGeneratorApp" ng-controller="UserResumeCtrl"
      ng-init="InitViewUserProfile(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">
 
-
-    <ng-include ng-model="TemplateSrcIndex"  src="TemplateSrcIndex"></ng-include>
+    <ng-include ng-model="TemplateSrcIndex" src="TemplateSrcIndex"></ng-include>
 
     <script src="~/dist/jquery.bundle.min.js"></script>
+    <script src="~/dist/export-scripts.bundle.min.js"></script>
+
     <script src="~/dist/app-build.js"></script>
 </div>

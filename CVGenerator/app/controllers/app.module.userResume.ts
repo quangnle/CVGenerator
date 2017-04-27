@@ -2,6 +2,8 @@
 'use strict';
 
 module CVGen.Controller {
+    declare var pdfMake: any;
+    declare var html2canvas: any;
     export class UserResume {
         public static $inject = ['$scope', 'templateService'];
         public static MonthArray = ['January',
@@ -42,6 +44,23 @@ module CVGen.Controller {
                     $scope.AccountInfo = {};
                     $scope.AccountInfo.UserEmail = data.UserEmail;
                     $scope.PersonalInformations = data.PersonalInformations;
+                }
+
+                $scope.ExportMyCv = () => {
+
+
+                    html2canvas(document.body, {
+                        onrendered: function (canvas) {
+                            var data = canvas.toDataURL();
+                            var docDefinition = {
+                                content: [{
+                                    image: data,
+                                    width: 500,
+                                }]
+                            };
+                            pdfMake.createPdf(docDefinition).download($scope.Title + ".pdf");
+                        }
+                    });
                 }
 
                 $scope.GetRangeTime = (fromM, fromY, toM, toY) => {

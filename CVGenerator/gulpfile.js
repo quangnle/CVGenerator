@@ -29,6 +29,19 @@ gulp.task('vendor-scripts', function () {
 		.pipe(gulp.dest(outputLocation + '/'));
 });
 
+gulp.task('export-scripts', function () {
+    var vendorSources = {
+        jquery: [
+                'node_modules/html2canvas/dist/html2canvas.js',
+                'node_modules/pdfmake/build/pdfmake.js'
+        ]
+    }
+
+    gulp.src(vendorSources.jquery)
+		.pipe(concat('export-scripts.bundle.min.js'))
+		.pipe(gulp.dest(outputLocation + '/'));
+});
+
 gulp.task('minify-css', function () {
 
     gulp.src([
@@ -42,4 +55,4 @@ gulp.task('minify-css', function () {
 });
 
 
-gulp.task('default', ['clean', 'vendor-scripts', 'minify-css'], function () { });
+gulp.task('default', ['clean', 'vendor-scripts', 'export-scripts', 'minify-css'], function () { });

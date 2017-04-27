@@ -185,6 +185,9 @@
     <Content Include="Content\Main\images\preloader.gif" />
     <Content Include="Content\Main\images\World_map_png-7.png" />
     <Content Include="Content\Main\js\theme.js" />
+    <Content Include="CVExportFiles\init.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CvTemplates\DarkBlue\contact.html" />
     <Content Include="CvTemplates\DarkBlue\css\style-print.css" />
     <Content Include="CvTemplates\DarkBlue\css\style.css" />

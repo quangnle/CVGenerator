@@ -98,11 +98,15 @@ namespace CVGenerator.Controllers.API
         }
 
         [HttpGet]
-        public HttpResponseMessage Generate(string id)
+        public HttpResponseMessage Generate(string url, string id)
         {
+
+            WebClient client = new WebClient();
+            string downloadString = client.DownloadString("http://localhost:52714/mycv/darkblue/6B96D41A-101E-4781-BDC4-1F8A6F7F8E98/");
+           
             var gen = PdfGenerator.GetInstance();
             var exportPath = ConfigurationManager.AppSettings["CVPath"];
-            gen.ConvertToPDF(Request.RequestUri.ToString(), Request.RequestUri.ToString() + exportPath + "/" + id + ".pdf");
+            gen.ConvertToPDF("http://localhost:52714/mycv/darkblue/6B96D41A-101E-4781-BDC4-1F8A6F7F8E98/", id + ".pdf");
             
             var byteArr = File.ReadAllBytes(exportPath + "/" + id + ".pdf");
 
