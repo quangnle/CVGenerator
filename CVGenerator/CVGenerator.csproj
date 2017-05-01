@@ -266,6 +266,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AccountHelper.cs" />
