@@ -3,11 +3,11 @@
 
 module CVGen.Controller {
     export class Profile {
-        public static $inject = ['$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService', 'referenceService', 'uploadService'];
+        public static $inject = ['$rootScope', '$scope', '$location', 'logger', 'profileService', 'skillService', 'workExpService', 'referenceService', 'uploadService'];
 
         static Configure(module: angular.IModule) {
             module.controller('ProfileCtrl',
-                function ($scope, $location, logger,
+                function ($rootScope, $scope, $location, logger,
                     profileService: Services.ProfileService,
                     skillService: Services.SkillService,
                     workExpService: Services.WorkExpService,
@@ -15,8 +15,9 @@ module CVGen.Controller {
                     uploadService: Services.UploadService) {
 
                     $scope.InitCreateProfile = () => {
-                        $scope.myImage = '';
-                        $scope.myCroppedImage = '';
+                        $scope.uploadImage = {};
+                        $scope.uploadImage.myImage = '';
+                        $scope.uploadImage.myCroppedImage = '';
 
                         $scope.steps = [
                             'personalInformation',
@@ -69,18 +70,18 @@ module CVGen.Controller {
                         var reader = new FileReader();
                         reader.onload = function (evt) {
                             $scope.$apply(function ($scope) {
-                                $scope.myImage = (<any>evt.target).result;
+                                $scope.uploadImage.myImage = (<any>evt.target).result;
                             });
                         };
                         reader.readAsDataURL(file);
                     };
 
-                    $scope.SubmitPersonalInfo = () => {                     
-                        uploadService.CvPhoto($scope.myImage)
+                    $scope.SubmitPersonalInfo = () => {
+                        uploadService.CvPhoto($scope.uploadImage.myCroppedImage)
                             .then((response) => {
                                 if (response.status == 200) {
                                     logger.log("Saved successfully.");
-                                  
+
                                 }
                             });
 

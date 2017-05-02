@@ -1,6 +1,7 @@
 ﻿using CVGenerator.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -15,9 +16,9 @@ namespace CVGenerator.Controllers.API
         [HttpPost]
         public HttpResponseMessage CvPhoto([FromBody]UploadViewModel model)
         {
-            String path = HttpContext.Current.Server.MapPath("~/CVExportFiles"); //Path
+            String path = HttpContext.Current.Server.MapPath("~/" + ConfigurationManager.AppSettings["PhotoUploadPath"]); //Path
 
-           
+
             if (!System.IO.Directory.Exists(path))
             {
                 System.IO.Directory.CreateDirectory(path); //Create directory if it doesn't exist
@@ -25,9 +26,11 @@ namespace CVGenerator.Controllers.API
 
             string imageName = Guid.NewGuid() + ".jpg";
 
-         
+
             string imgPath = Path.Combine(path, imageName);
-            var stringContent = model.Content.Replace("data:image/jpeg;base64,", "");
+            var stringContent = model.Content
+                .Replace("data:image/jpeg;base64,", "")
+                .Replace("data:image/png;base64,", "");
             byte[] imageBytes = Convert.FromBase64String(stringContent);
 
             File.WriteAllBytes(imgPath, imageBytes);

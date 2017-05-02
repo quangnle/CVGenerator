@@ -14,12 +14,13 @@
         <label>Your Photo</label>
         <div class="row clearfix">
             <div class="col-xs-12">
-                <div class="cropArea" ng-show="myImage.length>0">
-                    <ui-cropper image="myImage" area-type="rectangle" aspect-ratio="0.78"
-                                result-image="myCroppedImage" result-image-size='{w: 120,h: 155}' init-max-area="true"></ui-cropper>
-                    <!--<ui-cropper image="myImage" result-image="myCroppedImage"></ui-cropper>-->
+                <div class="cropArea" ng-show="uploadImage.myImage.length>0">
+                    <ui-cropper image="uploadImage.myImage" area-type="rectangle" aspect-ratio="0.78"
+                                result-image="uploadImage.myCroppedImage" result-image-size='{w: 120,h: 155}' init-max-area="true"></ui-cropper>
+                    <!--<ui-cropper image="myImage" result-image="myCroppedImage"></ui-cropper>-->           
                 </div>
                 <div>Select an image file: <input type="file" id="fileInput" onchange="angular.element(this).scope().uploadFileNameChanged(event)" /></div>
+                <!--<div><div><img ng-src="{{myCroppedImage}}" /></div></div>-->
             </div>
         </div>
     </div>
