@@ -18,6 +18,7 @@ module CVGen.Controller {
                         $scope.uploadImage = {};
                         $scope.uploadImage.myImage = '';
                         $scope.uploadImage.myCroppedImage = '';
+                        $scope.uploadImage.change = false;
 
                         $scope.steps = [
                             'personalInformation',
@@ -56,6 +57,8 @@ module CVGen.Controller {
                                         $scope.ProfileId = res.PersonalInformation.Id;
                                         $scope.ProfileGuidId = res.PersonalInformation.IdProfile;
                                         $scope.Profile = res.PersonalInformation;
+                                        $scope.uploadImage.myImage = $scope.Profile.Photo;
+
                                         $scope.Educations = res.Educations;
                                         $scope.Skills = res.Skills;
                                         $scope.WorkExps = res.WorkExps;
@@ -71,20 +74,13 @@ module CVGen.Controller {
                         reader.onload = function (evt) {
                             $scope.$apply(function ($scope) {
                                 $scope.uploadImage.myImage = (<any>evt.target).result;
+                                $scope.uploadImage.change = true;
                             });
                         };
                         reader.readAsDataURL(file);
                     };
 
-                    $scope.SubmitPersonalInfo = () => {
-                        uploadService.CvPhoto($scope.uploadImage.myCroppedImage)
-                            .then((response) => {
-                                if (response.status == 200) {
-                                    logger.log("Saved successfully.");
-
-                                }
-                            });
-
+                    $scope.SubmitPersonalInfo = () => {                     
                         var profile = $scope.Profile;
                         profileService.SubmitPersonalInfo(profile)
                             .then((response) => {
@@ -98,7 +94,22 @@ module CVGen.Controller {
                                     $scope.ProfileId = (<any>response.data).Id;
                                     $scope.ProfileGuidId = (<any>response.data).GuidId;
                                 }
-                            });
+                            });             
+                    };
+
+                    $scope.SubmitPhoto = () => {
+                        uploadService.CvPhoto($scope.uploadImage.myCroppedImage)
+                            .then((response) => {
+                                if (response.status == 200) {
+                                    $scope.Profile.Photo = (<any>response.data).Photo;
+                                    $scope.SubmitPersonalInfo();
+                                    //logger.log("Your photo was uploaded successfully.");
+                                }
+                            });        
+                    };
+
+                    $scope.onCropPhoto = () => {
+                        console.log("a");
                     };
 
                     $scope.GotoPersonalInfo = () => {

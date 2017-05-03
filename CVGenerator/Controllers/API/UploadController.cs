@@ -16,8 +16,8 @@ namespace CVGenerator.Controllers.API
         [HttpPost]
         public HttpResponseMessage CvPhoto([FromBody]UploadViewModel model)
         {
-            String path = HttpContext.Current.Server.MapPath("~/" + ConfigurationManager.AppSettings["PhotoUploadPath"]); //Path
-
+            String uploadFolder = ConfigurationManager.AppSettings["PhotoUploadPath"];
+            String path = HttpContext.Current.Server.MapPath("~/" + uploadFolder); //Path
 
             if (!System.IO.Directory.Exists(path))
             {
@@ -25,7 +25,6 @@ namespace CVGenerator.Controllers.API
             }
 
             string imageName = Guid.NewGuid() + ".jpg";
-
 
             string imgPath = Path.Combine(path, imageName);
             var stringContent = model.Content
@@ -35,7 +34,11 @@ namespace CVGenerator.Controllers.API
 
             File.WriteAllBytes(imgPath, imageBytes);
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var dataReturn = new
+            {
+                Photo = string.Format("/{0}/{1}", uploadFolder, imageName),
+            };
+            return Request.CreateResponse(HttpStatusCode.OK, dataReturn);
         }
     }
 }

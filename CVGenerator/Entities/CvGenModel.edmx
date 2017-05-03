@@ -36,7 +36,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="254" />
           <Property Name="Website" Type="nvarchar" MaxLength="50" />
           <Property Name="AboutMe" Type="nvarchar" MaxLength="500" />
-          <Property Name="Photo" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="varchar" MaxLength="150" />
           <Property Name="IdUser" Type="int" />
         </EntityType>
         <EntityType Name="TReference">
@@ -121,13 +121,13 @@
       <Schema Namespace="UAB.DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="GvGenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TEducations" EntityType="UAB.DatabaseModel.TEducation" />
-          <EntitySet Name="TProfiles" EntityType="UAB.DatabaseModel.TProfile" />
           <EntitySet Name="TReferences" EntityType="UAB.DatabaseModel.TReference" />
           <EntitySet Name="TResumes" EntityType="UAB.DatabaseModel.TResume" />
           <EntitySet Name="TSkills" EntityType="UAB.DatabaseModel.TSkill" />
           <EntitySet Name="TTemplates" EntityType="UAB.DatabaseModel.TTemplate" />
           <EntitySet Name="TUsers" EntityType="UAB.DatabaseModel.TUser" />
           <EntitySet Name="TWorkExperiences" EntityType="UAB.DatabaseModel.TWorkExperience" />
+          <EntitySet Name="TProfiles" EntityType="UAB.DatabaseModel.TProfile" />
         </EntityContainer>
         <EntityType Name="TEducation">
           <Key>
@@ -140,28 +140,6 @@
           <Property Name="Degree" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="IdProfile" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TProfile">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProfile" Type="Guid" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" Nullable="false" />
-          <Property Name="YearOfExp" Type="Int32" Nullable="false" />
-          <Property Name="Gender" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
-          <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
-          <Property Name="Nationality" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
-          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AboutMe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IdUser" Type="Int32" />
         </EntityType>
         <EntityType Name="TReference">
           <Key>
@@ -229,6 +207,28 @@
           <Property Name="Description" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
           <Property Name="IdProfile" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="TProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProfile" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="YearOfExp" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="85" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AboutMe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IdUser" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -244,29 +244,6 @@
                 <ScalarProperty Name="ToYear" ColumnName="ToYear" />
                 <ScalarProperty Name="FromYear" ColumnName="FromYear" />
                 <ScalarProperty Name="University" ColumnName="University" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TProfiles">
-            <EntityTypeMapping TypeName="UAB.DatabaseModel.TProfile">
-              <MappingFragment StoreEntitySet="TProfile">
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
-                <ScalarProperty Name="Degree" ColumnName="Degree" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="YearOfExp" ColumnName="YearOfExp" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="IdProfile" ColumnName="IdProfile" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -339,6 +316,29 @@
                 <ScalarProperty Name="FromYear" ColumnName="FromYear" />
                 <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
                 <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TProfiles">
+            <EntityTypeMapping TypeName="UAB.DatabaseModel.TProfile">
+              <MappingFragment StoreEntitySet="TProfile">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="YearOfExp" ColumnName="YearOfExp" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IdProfile" ColumnName="IdProfile" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

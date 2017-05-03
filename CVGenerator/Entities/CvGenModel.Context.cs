@@ -26,12 +26,12 @@ namespace CVGenerator.Entities
         }
     
         public virtual DbSet<TEducation> TEducations { get; set; }
-        public virtual DbSet<TProfile> TProfiles { get; set; }
         public virtual DbSet<TReference> TReferences { get; set; }
         public virtual DbSet<TResume> TResumes { get; set; }
         public virtual DbSet<TSkill> TSkills { get; set; }
         public virtual DbSet<TTemplate> TTemplates { get; set; }
         public virtual DbSet<TUser> TUsers { get; set; }
         public virtual DbSet<TWorkExperience> TWorkExperiences { get; set; }
+        public virtual DbSet<TProfile> TProfiles { get; set; }
     }
 }
