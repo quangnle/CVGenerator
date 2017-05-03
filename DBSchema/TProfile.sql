@@ -15,6 +15,6 @@
     [Email] NVARCHAR(254) NULL, 
     [Website] NVARCHAR(50) NULL, 
     [AboutMe] NVARCHAR(500) NULL, 
-    [Photo] VARCHAR(50) NULL, 
+    [Photo] VARCHAR(150) NULL, 
     [IdUser] INT NULL
 )

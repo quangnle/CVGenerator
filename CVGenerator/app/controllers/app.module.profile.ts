@@ -80,7 +80,7 @@ module CVGen.Controller {
                         reader.readAsDataURL(file);
                     };
 
-                    $scope.SubmitPersonalInfo = () => {                     
+                    $scope.SubmitPersonalInfo = () => {
                         var profile = $scope.Profile;
                         profileService.SubmitPersonalInfo(profile)
                             .then((response) => {
@@ -94,7 +94,7 @@ module CVGen.Controller {
                                     $scope.ProfileId = (<any>response.data).Id;
                                     $scope.ProfileGuidId = (<any>response.data).GuidId;
                                 }
-                            });             
+                            });
                     };
 
                     $scope.SubmitPhoto = () => {
@@ -102,10 +102,14 @@ module CVGen.Controller {
                             .then((response) => {
                                 if (response.status == 200) {
                                     $scope.Profile.Photo = (<any>response.data).Photo;
-                                    $scope.SubmitPersonalInfo();
-                                    //logger.log("Your photo was uploaded successfully.");
+                                    if ($scope.Profile.Id != null) {
+                                        $scope.SubmitPersonalInfo();
+                                    }
+                                    else {
+                                        logger.log("Your photo was uploaded successfully.");
+                                    }
                                 }
-                            });        
+                            });
                     };
 
                     $scope.onCropPhoto = () => {
